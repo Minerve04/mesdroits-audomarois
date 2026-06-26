@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DÃ©couvrez toutes les aides auxquelles vous avez droit dans l'Audomarois. ChÃ´mage, reconversion, formation, aides d'urgence. 5 minutes chrono.">
-    <title>Mes Droits Audomarois â Vos aides en 5 minutes</title>
+    <meta name="description" content="Découvrez toutes les aides auxquelles vous avez droit dans l'Audomarois. Chômage, reconversion, formation, aides d'urgence. 5 minutes chrono.">
+    <title>Mes Droits Audomarois — Vos aides en 5 minutes</title>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,7 +37,7 @@
             line-height: 1.6;
         }
 
-        /* ââ HEADER ââ */
+        /* ── HEADER ── */
         .header {
             background: var(--primary);
             color: white;
@@ -55,10 +55,10 @@
         .progress-bar { height: 3px; background: rgba(255,255,255,.25); border-radius: 2px; margin-top: 8px; }
         .progress-fill { height: 100%; background: #93c5fd; border-radius: 2px; transition: width .4s ease; }
 
-        /* ââ MAIN ââ */
+        /* ── MAIN ── */
         .main { max-width: 640px; margin: 0 auto; padding: 24px 16px 80px; }
 
-        /* ââ SCREENS ââ */
+        /* ── SCREENS ── */
         .screen { display: none; }
         .screen.active { display: block; animation: fadeUp .25s ease; }
         @keyframes fadeUp {
@@ -66,7 +66,7 @@
             to   { opacity: 1; transform: translateY(0);   }
         }
 
-        /* ââ INTRO ââ */
+        /* ── INTRO ── */
         .intro-hero {
             background: white; border-radius: var(--radius);
             padding: 32px 24px; text-align: center;
@@ -99,7 +99,7 @@
         .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: .83rem; color: var(--gray-700); }
         .feature-grid div { display: flex; align-items: center; gap: 5px; }
 
-        /* ââ QUESTION CARD ââ */
+        /* ── QUESTION CARD ── */
         .question-card {
             background: white; border-radius: var(--radius);
             padding: 26px 22px; box-shadow: var(--shadow);
@@ -136,7 +136,7 @@
         }
         .commune-select:focus { outline: none; border-color: var(--primary); }
 
-        /* ââ NAV ââ */
+        /* ── NAV ── */
         .nav { display: flex; gap: 10px; margin-top: 20px; }
         .btn-back {
             padding: 12px 18px; border: 2px solid var(--gray-200);
@@ -152,7 +152,7 @@
         .btn-next:hover { background: var(--primary-dark); }
         .btn-next:disabled { background: var(--gray-200); color: var(--gray-600); cursor: not-allowed; }
 
-        /* ââ LOADING ââ */
+        /* ── LOADING ── */
         .loading-screen { text-align: center; padding: 70px 20px; }
         .spinner {
             width: 46px; height: 46px;
@@ -163,7 +163,7 @@
         .loading-text { font-size: 1.05rem; font-weight: 700; color: var(--gray-700); margin-bottom: 6px; }
         .loading-sub  { font-size: .82rem; color: var(--gray-600); }
 
-        /* ââ RESULTS ââ */
+        /* ── RESULTS ── */
         .results-header {
             background: white; border-radius: var(--radius);
             padding: 24px; box-shadow: var(--shadow);
@@ -188,7 +188,7 @@
             letter-spacing: .5px; color: var(--gray-600); margin: 20px 0 8px;
         }
 
-        /* ââ AID CARD ââ */
+        /* ── AID CARD ── */
         .aid-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 10px; overflow: hidden; }
         .aid-card-header { padding: 15px 18px 10px; display: flex; align-items: flex-start; gap: 10px; }
         .aid-badge {
@@ -214,7 +214,7 @@
             margin-top: 8px; font-size: .82rem; color: var(--primary); font-weight: 600;
         }
 
-        /* ââ ACTION PLAN ââ */
+        /* ── ACTION PLAN ── */
         .action-plan { background: var(--primary); color: white; border-radius: var(--radius); padding: 22px; margin-top: 22px; }
         .action-plan-title { font-size: 1rem; font-weight: 800; margin-bottom: 14px; }
         .action-step { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
@@ -232,12 +232,12 @@
             font-size: .78rem; opacity: .8;
         }
 
-        /* ââ CONTACTS BOX ââ */
+        /* ── CONTACTS BOX ── */
         .contacts-box { background: white; border-radius: var(--radius); padding: 18px; margin-top: 14px; box-shadow: var(--shadow); }
         .contacts-title { font-size: .82rem; color: var(--gray-600); font-weight: 700; margin-bottom: 10px; }
         .contacts-list  { font-size: .83rem; color: var(--gray-700); line-height: 1.9; }
 
-        /* ââ EMAIL SCREEN ââ */
+        /* ── EMAIL SCREEN ── */
         .email-card {
             background: white; border-radius: var(--radius);
             padding: 32px 24px; box-shadow: var(--shadow); text-align: center;
@@ -278,11 +278,11 @@
             text-align: left; line-height: 1.5;
         }
 
-        /* ââ FOOTER ââ */
+        /* ── FOOTER ── */
         .footer { margin-top: 28px; text-align: center; font-size: .75rem; color: var(--gray-600); padding-bottom: 20px; }
         .footer a { color: var(--primary); }
 
-        /* ââ MODAL LÃGAL ââ */
+        /* ── MODAL LÉGAL ── */
         .modal-overlay {
             display: none; position: fixed; inset: 0;
             background: rgba(0,0,0,.55); z-index: 200;
@@ -307,7 +307,7 @@
         .modal-divider { border: none; border-top: 1px solid var(--gray-200); margin: 20px 0; }
         .modal-placeholder { background: #fef9c3; border: 1px dashed #ca8a04; border-radius: 4px; padding: 2px 6px; font-size: .8rem; color: #92400e; font-weight: 600; }
 
-        /* ââ PRINT ââ */
+        /* ── PRINT ── */
         @media print {
             .header { position: static; }
             .btn-print, .btn-back, .btn-next, .nav, .btn-start { display: none !important; }
@@ -317,7 +317,7 @@
             #screen-intro, #screen-questions, #screen-loading { display: none !important; }
         }
 
-        /* ââ MOBILE TWEAKS ââ */
+        /* ── MOBILE TWEAKS ── */
         @media (max-width: 400px) {
             .intro-title { font-size: 1.3rem; }
             .question-text { font-size: 1.05rem; }
@@ -340,69 +340,69 @@
 <!-- ===== MAIN ===== -->
 <main class="main">
 
-    <!-- MODAL MENTIONS LÃGALES -->
+    <!-- MODAL MENTIONS LÉGALES -->
     <div class="modal-overlay" id="modalLegal" onclick="closeLegalModal(event)">
         <div class="modal-box">
-            <button class="modal-close" onclick="document.getElementById('modalLegal').classList.remove('open')">â</button>
-            <div class="modal-title">Mentions lÃ©gales &amp; Politique de confidentialitÃ©</div>
+            <button class="modal-close" onclick="document.getElementById('modalLegal').classList.remove('open')">✕</button>
+            <div class="modal-title">Mentions légales &amp; Politique de confidentialité</div>
 
-            <!-- MENTIONS LÃGALES -->
+            <!-- MENTIONS LÉGALES -->
             <div class="modal-section">
-                <h3>1. Mentions lÃ©gales</h3>
+                <h3>1. Mentions légales</h3>
                 <p><strong>Responsable de publication :</strong> Julie Bourgeois</p>
-                <p><strong>Adresse :</strong> <span class="modal-placeholder">[ADRESSE COMPLÃTE â Ã  complÃ©ter]</span></p>
+                <p><strong>Adresse :</strong> <span class="modal-placeholder">[ADRESSE COMPLÈTE — à compléter]</span></p>
                 <p><strong>Contact :</strong> <a href="mailto:julie@victoire.ai" style="color:var(--primary)">julie@victoire.ai</a></p>
-                <p style="margin-top:8px"><strong>HÃ©bergeur :</strong> GitHub, Inc. â 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Ãtats-Unis â <a href="https://github.com" style="color:var(--primary)">github.com</a></p>
+                <p style="margin-top:8px"><strong>Hébergeur :</strong> GitHub, Inc. — 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com" style="color:var(--primary)">github.com</a></p>
             </div>
 
             <hr class="modal-divider">
 
-            <!-- POLITIQUE DE CONFIDENTIALITÃ -->
+            <!-- POLITIQUE DE CONFIDENTIALITÉ -->
             <div class="modal-section">
-                <h3>2. DonnÃ©es collectÃ©es</h3>
-                <p>Cette plateforme collecte les donnÃ©es suivantes :</p>
+                <h3>2. Données collectées</h3>
+                <p>Cette plateforme collecte les données suivantes :</p>
                 <ul>
-                    <li><strong>RÃ©ponses au questionnaire</strong> (situation, commune, tranche d'Ã¢ge, revenus...) â transmises de faÃ§on anonyme sauf si vous laissez votre email</li>
-                    <li><strong>Adresse email</strong> â uniquement si vous la renseignez volontairement</li>
-                    <li><strong>Consentement</strong> Ã  recevoir des communications de campagne â enregistrÃ© avec l'email</li>
+                    <li><strong>Réponses au questionnaire</strong> (situation, commune, tranche d'âge, revenus...) — transmises de façon anonyme sauf si vous laissez votre email</li>
+                    <li><strong>Adresse email</strong> — uniquement si vous la renseignez volontairement</li>
+                    <li><strong>Consentement</strong> à recevoir des communications de campagne — enregistré avec l'email</li>
                 </ul>
-                <p style="margin-top:8px">Aucune donnÃ©e de navigation, cookie de traÃ§age ou identifiant technique n'est collectÃ©.</p>
+                <p style="margin-top:8px">Aucune donnée de navigation, cookie de traçage ou identifiant technique n'est collecté.</p>
             </div>
 
             <div class="modal-section">
-                <h3>3. FinalitÃ©s et base lÃ©gale (RGPD)</h3>
+                <h3>3. Finalités et base légale (RGPD)</h3>
                 <ul>
-                    <li><strong>AmÃ©lioration de la plateforme</strong> â base lÃ©gale : intÃ©rÃªt lÃ©gitime (Art. 6.1.f)</li>
-                    <li><strong>Communications de campagne</strong> â base lÃ©gale : consentement explicite (Art. 6.1.a), uniquement si la case est cochÃ©e</li>
+                    <li><strong>Amélioration de la plateforme</strong> — base légale : intérêt légitime (Art. 6.1.f)</li>
+                    <li><strong>Communications de campagne</strong> — base légale : consentement explicite (Art. 6.1.a), uniquement si la case est cochée</li>
                 </ul>
             </div>
 
             <div class="modal-section">
-                <h3>4. DurÃ©e de conservation</h3>
-                <p>Les donnÃ©es sont conservÃ©es pour une durÃ©e maximale de <strong>12 mois aprÃ¨s la prochaine Ã©lection lÃ©gislative</strong>, puis supprimÃ©es. Les emails sont supprimÃ©s immÃ©diatement sur simple demande.</p>
+                <h3>4. Durée de conservation</h3>
+                <p>Les données sont conservées pour une durée maximale de <strong>12 mois après la prochaine élection législative</strong>, puis supprimées. Les emails sont supprimés immédiatement sur simple demande.</p>
             </div>
 
             <div class="modal-section">
                 <h3>5. Vos droits</h3>
-                <p>ConformÃ©ment au RGPD, vous disposez d'un droit d'accÃ¨s, de rectification, de suppression et d'opposition au traitement de vos donnÃ©es. Pour exercer ces droits : <a href="mailto:julie@victoire.ai" style="color:var(--primary)">julie@victoire.ai</a>. Vous pouvez Ã©galement introduire une rÃ©clamation auprÃ¨s de la <a href="https://www.cnil.fr" style="color:var(--primary)">CNIL</a>.</p>
+                <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition au traitement de vos données. Pour exercer ces droits : <a href="mailto:julie@victoire.ai" style="color:var(--primary)">julie@victoire.ai</a>. Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" style="color:var(--primary)">CNIL</a>.</p>
             </div>
 
             <div class="modal-section">
-                <h3>6. Transferts de donnÃ©es</h3>
-                <p>Les donnÃ©es sont stockÃ©es via <strong>Google Sheets</strong> (Google LLC, couvert par les Clauses Contractuelles Types UE) et, si vous avez consenti, transmises Ã  <strong>Brevo SAS</strong> (sociÃ©tÃ© franÃ§aise, donnÃ©es hÃ©bergÃ©es en Europe).</p>
+                <h3>6. Transferts de données</h3>
+                <p>Les données sont stockées via <strong>Google Sheets</strong> (Google LLC, couvert par les Clauses Contractuelles Types UE) et, si vous avez consenti, transmises à <strong>Brevo SAS</strong> (société française, données hébergées en Europe).</p>
             </div>
 
             <hr class="modal-divider">
-            <p style="font-size:.75rem;color:var(--gray-600)">DerniÃ¨re mise Ã  jour : juin 2025 â Plateforme Mes Droits Audomarois</p>
+            <p style="font-size:.75rem;color:var(--gray-600)">Dernière mise à jour : juin 2025 — Plateforme Mes Droits Audomarois</p>
         </div>
     </div>
 
     <!-- INTRO -->
     <div class="screen active" id="screen-intro">
         <div class="intro-hero">
-            <div class="intro-icon">ð­</div>
-            <h1 class="intro-title">Vous Ãªtes touchÃ©(e) par la crise de l'emploi dans l'Audomarois&nbsp;?</h1>
-            <p class="intro-subtitle">RÃ©pondez Ã  8 questions et dÃ©couvrez toutes les aides auxquelles vous avez droit, avec les contacts locaux pour les obtenir concrÃ¨tement.</p>
+            <div class="intro-icon">🏭</div>
+            <h1 class="intro-title">Vous êtes touché(e) par la crise de l'emploi dans l'Audomarois&nbsp;?</h1>
+            <p class="intro-subtitle">Répondez à 8 questions et découvrez toutes les aides auxquelles vous avez droit, avec les contacts locaux pour les obtenir concrètement.</p>
             <div class="intro-stats">
                 <div class="stat-card">
                     <span class="stat-number">8</span>
@@ -414,24 +414,24 @@
                 </div>
                 <div class="stat-card">
                     <span class="stat-number">+15</span>
-                    <span class="stat-label">aides rÃ©fÃ©rencÃ©es</span>
+                    <span class="stat-label">aides référencées</span>
                 </div>
             </div>
-            <button class="btn-start" onclick="startQuiz()">Trouver mes aides â</button>
-            <p class="intro-note">ð Vos donnÃ©es sont traitÃ©es de faÃ§on confidentielle â <a href="javascript:void(0)" onclick="openLegalModal()" style="color:var(--primary)">Politique de confidentialitÃ©</a></p>
+            <button class="btn-start" onclick="startQuiz()">Trouver mes aides →</button>
+            <p class="intro-note">🔒 Vos données sont traitées de façon confidentielle — <a href="javascript:void(0)" onclick="openLegalModal()" style="color:var(--primary)">Politique de confidentialité</a></p>
         </div>
 
         <div class="intro-features">
-            <p>Cette plateforme vous aide Ã  accÃ©der Ã &nbsp;:</p>
+            <p>Cette plateforme vous aide à accéder à&nbsp;:</p>
             <div class="feature-grid">
-                <div>â Allocations chÃ´mage</div>
-                <div>â RSA &amp; aides sociales</div>
-                <div>â Formations CPF</div>
-                <div>â Aides au logement</div>
-                <div>â Aide alimentaire d'urgence</div>
-                <div>â Reconversion professionnelle</div>
-                <div>â CrÃ©ation d'entreprise</div>
-                <div>â Aides RÃ©gion &amp; DÃ©partement</div>
+                <div>✅ Allocations chômage</div>
+                <div>✅ RSA &amp; aides sociales</div>
+                <div>✅ Formations CPF</div>
+                <div>✅ Aides au logement</div>
+                <div>✅ Aide alimentaire d'urgence</div>
+                <div>✅ Reconversion professionnelle</div>
+                <div>✅ Création d'entreprise</div>
+                <div>✅ Aides Région &amp; Département</div>
             </div>
         </div>
     </div>
@@ -440,17 +440,17 @@
     <div class="screen" id="screen-questions">
         <div class="question-card" id="questionCard"></div>
         <div class="nav">
-            <button class="btn-back" id="btnBack" onclick="prevStep()">â Retour</button>
-            <button class="btn-next" id="btnNext" onclick="nextStep()" disabled>Suivant â</button>
+            <button class="btn-back" id="btnBack" onclick="prevStep()">← Retour</button>
+            <button class="btn-next" id="btnNext" onclick="nextStep()" disabled>Suivant →</button>
         </div>
     </div>
 
     <!-- EMAIL OPT-IN -->
     <div class="screen" id="screen-email">
         <div class="email-card">
-            <div class="email-icon">ð¬</div>
-            <h2 class="email-title">Vos rÃ©sultats sont prÃªts&nbsp;!</h2>
-            <p class="email-subtitle">Laissez votre email pour recevoir votre plan d'action et rester informÃ©(e) des actualitÃ©s et initiatives pour l'emploi dans l'Audomarois. EntiÃ¨rement facultatif.</p>
+            <div class="email-icon">📬</div>
+            <h2 class="email-title">Vos résultats sont prêts&nbsp;!</h2>
+            <p class="email-subtitle">Laissez votre email pour recevoir votre plan d'action et rester informé(e) des actualités et initiatives pour l'emploi dans l'Audomarois. Entièrement facultatif.</p>
 
             <input type="email" class="email-input" id="emailInput"
                    placeholder="votre@email.fr" autocomplete="email">
@@ -460,11 +460,11 @@
                 <span class="consent-text">J'accepte de recevoir des informations sur les initiatives citoyennes et la campagne pour l'Audomarois.</span>
             </label>
 
-            <button class="btn-email-submit" onclick="submitEmail()">Voir mes rÃ©sultats â</button>
+            <button class="btn-email-submit" onclick="submitEmail()">Voir mes résultats →</button>
             <button class="btn-email-skip" onclick="skipEmail()">Continuer sans laisser mon email</button>
 
             <div class="email-rgpd">
-                ð <strong>Vos donnÃ©es restent privÃ©es.</strong> Votre email ne sera jamais transmis Ã  des tiers ni utilisÃ© Ã  des fins commerciales. Vous pouvez vous dÃ©sinscrire Ã  tout moment. ConformÃ©ment au RGPD, vous disposez d'un droit d'accÃ¨s, de rectification et de suppression de vos donnÃ©es.
+                🔒 <strong>Vos données restent privées.</strong> Votre email ne sera jamais transmis à des tiers ni utilisé à des fins commerciales. Vous pouvez vous désinscrire à tout moment. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
             </div>
         </div>
     </div>
@@ -473,8 +473,8 @@
     <div class="screen" id="screen-loading">
         <div class="loading-screen">
             <div class="spinner"></div>
-            <div class="loading-text">Analyse de votre situationâ¦</div>
-            <div class="loading-sub">Nous croisons vos rÃ©ponses avec les dispositifs disponibles dans l'Audomarois</div>
+            <div class="loading-text">Analyse de votre situation…</div>
+            <div class="loading-sub">Nous croisons vos réponses avec les dispositifs disponibles dans l'Audomarois</div>
         </div>
     </div>
 
@@ -496,36 +496,36 @@ const QUESTIONS = [
         hint: 'Choisissez ce qui correspond le mieux',
         type: 'single',
         options: [
-            { value: 'chomage_recent',  icon: 'ð', text: "J'ai perdu mon emploi rÃ©cemment",            sub: 'Depuis moins de 6 mois' },
-            { value: 'chomage_long',    icon: 'â³', text: 'Je suis sans emploi depuis longtemps',         sub: 'Plus de 6 mois' },
-            { value: 'emploi_precaire', icon: 'ð¼', text: "J'ai un emploi mais mes revenus sont insuffisants", sub: 'CDD, temps partiel, intÃ©rimâ¦' },
-            { value: 'reconversion',    icon: 'ð', text: 'Je veux me reconvertir ou changer de mÃ©tier',  sub: 'Formation, nouveau secteurâ¦' },
-            { value: 'creation',        icon: 'ð', text: 'Je veux crÃ©er mon activitÃ©',                   sub: 'Entreprise, auto-entrepriseâ¦' },
+            { value: 'chomage_recent',  icon: '📋', text: "J'ai perdu mon emploi récemment",            sub: 'Depuis moins de 6 mois' },
+            { value: 'chomage_long',    icon: '⏳', text: 'Je suis sans emploi depuis longtemps',         sub: 'Plus de 6 mois' },
+            { value: 'emploi_precaire', icon: '💼', text: "J'ai un emploi mais mes revenus sont insuffisants", sub: 'CDD, temps partiel, intérim…' },
+            { value: 'reconversion',    icon: '🔄', text: 'Je veux me reconvertir ou changer de métier',  sub: 'Formation, nouveau secteur…' },
+            { value: 'creation',        icon: '🚀', text: 'Je veux créer mon activité',                   sub: 'Entreprise, auto-entreprise…' },
         ]
     },
     {
         id: 'secteur', step: 2,
         text: 'Dans quel secteur travailliez-vous (ou travaillez-vous) ?',
-        hint: 'Certains dispositifs sont spÃ©cifiques Ã  votre secteur',
+        hint: 'Certains dispositifs sont spécifiques à votre secteur',
         type: 'single',
         options: [
-            { value: 'industrie', icon: 'ð­', text: 'Industrie / Manufacture',          sub: 'Verrerie, mÃ©tallurgie, productionâ¦' },
-            { value: 'commerce',  icon: 'ðï¸', text: 'Commerce / Distribution',          sub: 'Vente, grande surface, logistiqueâ¦' },
-            { value: 'services',  icon: 'ð¤', text: 'Services / SantÃ© / Social',         sub: 'Aide Ã  domicile, mÃ©dical, socialâ¦' },
-            { value: 'btp',       icon: 'ðï¸', text: 'BTP / Artisanat',                  sub: 'BÃ¢timent, travaux, artisanatâ¦' },
-            { value: 'autre',     icon: 'ð', text: 'Autre secteur',                     sub: 'Transport, agriculture, administrationâ¦' },
+            { value: 'industrie', icon: '🏭', text: 'Industrie / Manufacture',          sub: 'Verrerie, métallurgie, production…' },
+            { value: 'commerce',  icon: '🛍️', text: 'Commerce / Distribution',          sub: 'Vente, grande surface, logistique…' },
+            { value: 'services',  icon: '🤝', text: 'Services / Santé / Social',         sub: 'Aide à domicile, médical, social…' },
+            { value: 'btp',       icon: '🏗️', text: 'BTP / Artisanat',                  sub: 'Bâtiment, travaux, artisanat…' },
+            { value: 'autre',     icon: '📁', text: 'Autre secteur',                     sub: 'Transport, agriculture, administration…' },
         ]
     },
     {
         id: 'age', step: 3,
-        text: 'Quel est votre Ã¢ge ?',
-        hint: "Certaines aides sont rÃ©servÃ©es Ã  une tranche d'Ã¢ge",
+        text: 'Quel est votre âge ?',
+        hint: "Certaines aides sont réservées à une tranche d'âge",
         type: 'single',
         options: [
-            { value: 'moins26', icon: 'ð', text: 'Moins de 26 ans',  sub: '' },
-            { value: '26a45',   icon: 'ð¤', text: 'De 26 Ã  45 ans',   sub: '' },
-            { value: '46a55',   icon: 'ð¤', text: 'De 46 Ã  55 ans',   sub: 'Dispositifs seniors disponibles' },
-            { value: 'plus55',  icon: 'ð', text: 'Plus de 55 ans',   sub: 'Dispositifs seniors disponibles' },
+            { value: 'moins26', icon: '🎓', text: 'Moins de 26 ans',  sub: '' },
+            { value: '26a45',   icon: '👤', text: 'De 26 à 45 ans',   sub: '' },
+            { value: '46a55',   icon: '👤', text: 'De 46 à 55 ans',   sub: 'Dispositifs seniors disponibles' },
+            { value: 'plus55',  icon: '🌟', text: 'Plus de 55 ans',   sub: 'Dispositifs seniors disponibles' },
         ]
     },
     {
@@ -534,22 +534,22 @@ const QUESTIONS = [
         hint: 'Cela influe sur les montants',
         type: 'single',
         options: [
-            { value: 'seul',          icon: 'ð§',     text: 'CÃ©libataire, sans enfant',     sub: '' },
-            { value: 'seul_enfants',  icon: 'ð§âð¦',  text: 'Parent seul avec enfant(s)',   sub: 'Famille monoparentale' },
-            { value: 'couple',        icon: 'ð«',     text: 'En couple, sans enfant',        sub: '' },
-            { value: 'couple_enfants',icon: 'ð¨âð©âð¦', text: 'En couple avec enfant(s)',   sub: '' },
+            { value: 'seul',          icon: '🧑',     text: 'Célibataire, sans enfant',     sub: '' },
+            { value: 'seul_enfants',  icon: '🧑‍👦',  text: 'Parent seul avec enfant(s)',   sub: 'Famille monoparentale' },
+            { value: 'couple',        icon: '👫',     text: 'En couple, sans enfant',        sub: '' },
+            { value: 'couple_enfants',icon: '👨‍👩‍👦', text: 'En couple avec enfant(s)',   sub: '' },
         ]
     },
     {
         id: 'revenus', step: 5,
         text: 'Quels sont les revenus mensuels de votre foyer actuellement ?',
-        hint: 'Toutes sources confondues (chÃ´mage, conjoint, aidesâ¦)',
+        hint: 'Toutes sources confondues (chômage, conjoint, aides…)',
         type: 'single',
         options: [
-            { value: 'zero',    icon: 'â ï¸', text: 'Moins de 600 â¬ / mois',       sub: 'Situation urgente' },
-            { value: 'faible',  icon: 'ð', text: 'Entre 600 â¬ et 1 200 â¬',       sub: '' },
-            { value: 'moyen',   icon: 'ð', text: 'Entre 1 200 â¬ et 1 800 â¬',     sub: '' },
-            { value: 'correct', icon: 'ð', text: 'Plus de 1 800 â¬',              sub: '' },
+            { value: 'zero',    icon: '⚠️', text: 'Moins de 600 € / mois',       sub: 'Situation urgente' },
+            { value: 'faible',  icon: '📊', text: 'Entre 600 € et 1 200 €',       sub: '' },
+            { value: 'moyen',   icon: '📊', text: 'Entre 1 200 € et 1 800 €',     sub: '' },
+            { value: 'correct', icon: '📊', text: 'Plus de 1 800 €',              sub: '' },
         ]
     },
     {
@@ -558,9 +558,9 @@ const QUESTIONS = [
         hint: '',
         type: 'single',
         options: [
-            { value: 'locataire',    icon: 'ð ', text: 'Locataire',                        sub: 'Appartement ou maison en location' },
-            { value: 'proprietaire', icon: 'ð¡', text: 'PropriÃ©taire',                     sub: '' },
-            { value: 'heberge',      icon: 'ð¤', text: "HÃ©bergÃ©(e) chez quelqu'un",        sub: 'Famille, amisâ¦' },
+            { value: 'locataire',    icon: '🏠', text: 'Locataire',                        sub: 'Appartement ou maison en location' },
+            { value: 'proprietaire', icon: '🏡', text: 'Propriétaire',                     sub: '' },
+            { value: 'heberge',      icon: '🤝', text: "Hébergé(e) chez quelqu'un",        sub: 'Famille, amis…' },
         ]
     },
     {
@@ -570,84 +570,84 @@ const QUESTIONS = [
         type: 'select',
         options: [
             'Saint-Omer','Longuenesse','Arques','Blendecques','Wizernes',
-            'Aire-sur-la-Lys','Lumbres','Nordausques','ThÃ©rouanne','Moulle',
+            'Aire-sur-la-Lys','Lumbres','Nordausques','Thérouanne','Moulle',
             'Eperlecques','Watten','Clairmarais','Tilques','Serques',
-            'Zutkerque','Salperwick','Hallines','QuiestÃ¨de','Wardrecques',
+            'Zutkerque','Salperwick','Hallines','Quiestède','Wardrecques',
             'Leulinghem','Wavrans-sur-l\'Aa','Rebecques','Autre commune'
         ]
     },
     {
         id: 'priorite', step: 8,
         text: "Qu'est-ce qui est le plus important pour vous en ce moment ?",
-        hint: 'Cela nous aide Ã  prioriser vos rÃ©sultats',
+        hint: 'Cela nous aide à prioriser vos résultats',
         type: 'single',
         options: [
-            { value: 'urgent',         icon: 'ð°', text: 'Avoir un revenu rapidement',         sub: 'Urgence financiÃ¨re' },
-            { value: 'emploi',         icon: 'ð¼', text: 'Retrouver un emploi stable',          sub: 'Recherche active' },
-            { value: 'formation',      icon: 'ð', text: 'Me former / changer de mÃ©tier',       sub: 'Reconversion professionnelle' },
-            { value: 'creation',       icon: 'ð', text: 'CrÃ©er mon entreprise',                sub: 'Auto-entrepreneur, sociÃ©tÃ©â¦' },
-            { value: 'accompagnement', icon: 'ð¤', text: "Ãtre accompagnÃ©(e) dans mes dÃ©marches", sub: 'Conseils et suivi personnalisÃ©' },
+            { value: 'urgent',         icon: '💰', text: 'Avoir un revenu rapidement',         sub: 'Urgence financière' },
+            { value: 'emploi',         icon: '💼', text: 'Retrouver un emploi stable',          sub: 'Recherche active' },
+            { value: 'formation',      icon: '📚', text: 'Me former / changer de métier',       sub: 'Reconversion professionnelle' },
+            { value: 'creation',       icon: '🚀', text: 'Créer mon entreprise',                sub: 'Auto-entrepreneur, société…' },
+            { value: 'accompagnement', icon: '🤝', text: "Être accompagné(e) dans mes démarches", sub: 'Conseils et suivi personnalisé' },
         ]
     }
 ];
 
 /* ======================================================
-   AIDES â BASE DE DONNÃES
+   AIDES — BASE DE DONNÉES
    ====================================================== */
 const AIDS = [
     {
         id: 'are',
-        title: "Allocation ChÃ´mage (ARE)",
+        title: "Allocation Chômage (ARE)",
         category: "Revenus",
         priority: "urgent",
-        amount: "57 % Ã  75 % de votre ancien salaire â jusqu'Ã  24 mois",
-        description: "L'Allocation de Retour Ã  l'Emploi est versÃ©e par France Travail si vous avez travaillÃ© au moins 6 mois dans les 24 derniers mois. Inscrivez-vous rapidement : chaque jour de retard est un jour perdu.",
-        action: "Inscrivez-vous sur francetravail.fr OU prÃ©sentez-vous directement Ã  l'agence France Travail de Saint-Omer dans les 12 jours suivant la fin de votre contrat. Ã apporter : attestation employeur, piÃ¨ce d'identitÃ©, RIB.",
-        contact: "ð France Travail Saint-Omer : 3949 (numÃ©ro national gratuit) â Agence : 2 rue du MarÃ©chal Foch, Saint-Omer",
+        amount: "57 % à 75 % de votre ancien salaire — jusqu'à 24 mois",
+        description: "L'Allocation de Retour à l'Emploi est versée par France Travail si vous avez travaillé au moins 6 mois dans les 24 derniers mois. Inscrivez-vous rapidement : chaque jour de retard est un jour perdu.",
+        action: "Inscrivez-vous sur francetravail.fr OU présentez-vous directement à l'agence France Travail de Saint-Omer dans les 12 jours suivant la fin de votre contrat. À apporter : attestation employeur, pièce d'identité, RIB.",
+        contact: "📞 France Travail Saint-Omer : 3949 (numéro national gratuit) — Agence : 2 rue du Maréchal Foch, Saint-Omer",
         check: a => ['chomage_recent','chomage_long'].includes(a.situation)
     },
     {
         id: 'csp',
-        title: "Contrat de SÃ©curisation Professionnelle (CSP)",
+        title: "Contrat de Sécurisation Professionnelle (CSP)",
         category: "Reconversion",
         priority: "urgent",
         amount: "75 % de votre salaire brut pendant 12 mois",
-        description: "Dispositif rÃ©servÃ© aux salariÃ©s licenciÃ©s Ã©conomiques venant d'une entreprise de plus de 1 000 salariÃ©s â c'est le cas d'Arc International Ã  Arques. C'est bien plus avantageux que le chÃ´mage classique. ATTENTION : vous n'avez que 21 jours pour accepter.",
-        action: "Votre employeur doit vous proposer le CSP lors de l'entretien de licenciement. S'il ne l'a pas fait, demandez-le immÃ©diatement Ã  France Travail. N'attendez pas : le dÃ©lai est de 21 jours.",
-        contact: "ð France Travail Saint-Omer : 3949 â Ã rÃ©clamer en prioritÃ© si vous venez d'Arc International ou d'un grand groupe industriel",
+        description: "Dispositif réservé aux salariés licenciés économiques venant d'une entreprise de plus de 1 000 salariés — c'est le cas d'Arc International à Arques. C'est bien plus avantageux que le chômage classique. ATTENTION : vous n'avez que 21 jours pour accepter.",
+        action: "Votre employeur doit vous proposer le CSP lors de l'entretien de licenciement. S'il ne l'a pas fait, demandez-le immédiatement à France Travail. N'attendez pas : le délai est de 21 jours.",
+        contact: "📞 France Travail Saint-Omer : 3949 — À réclamer en priorité si vous venez d'Arc International ou d'un grand groupe industriel",
         check: a => ['chomage_recent','chomage_long'].includes(a.situation) && a.secteur === 'industrie'
     },
     {
         id: 'rsa',
-        title: "Revenu de SolidaritÃ© Active (RSA)",
+        title: "Revenu de Solidarité Active (RSA)",
         category: "Revenus",
         priority: "urgent",
-        amount: "~635 â¬ (seul) â ~952 â¬ (couple) â +~190 â¬ par enfant",
-        description: "Le RSA garantit un revenu minimum si vous avez plus de 25 ans (ou moins si vous avez un enfant). Beaucoup de personnes oublient d'en faire la demande. Il est cumulable avec une petite activitÃ©.",
-        action: "Faites votre demande sur caf.fr (rubrique Â« Mes services Â») ou directement Ã  la CAF de Saint-Omer. Le RSA est accordÃ© en 2 Ã  4 semaines. Ã apporter : 3 derniÃ¨res fiches de paie, piÃ¨ce d'identitÃ©, justificatif de domicile, RIB.",
-        contact: "ð CAF Saint-Omer : 3230 â En ligne : caf.fr â CCAS de votre commune pour aide au dossier",
+        amount: "~635 € (seul) — ~952 € (couple) — +~190 € par enfant",
+        description: "Le RSA garantit un revenu minimum si vous avez plus de 25 ans (ou moins si vous avez un enfant). Beaucoup de personnes oublient d'en faire la demande. Il est cumulable avec une petite activité.",
+        action: "Faites votre demande sur caf.fr (rubrique « Mes services ») ou directement à la CAF de Saint-Omer. Le RSA est accordé en 2 à 4 semaines. À apporter : 3 dernières fiches de paie, pièce d'identité, justificatif de domicile, RIB.",
+        contact: "📞 CAF Saint-Omer : 3230 — En ligne : caf.fr — CCAS de votre commune pour aide au dossier",
         check: a => ['zero','faible'].includes(a.revenus)
     },
     {
         id: 'prime_activite',
-        title: "Prime d'ActivitÃ©",
+        title: "Prime d'Activité",
         category: "Revenus",
         priority: "important",
-        amount: "Jusqu'Ã  600 â¬ / mois selon situation",
-        description: "Si vous reprenez un emploi ou avez un emploi Ã  temps partiel avec de faibles revenus, la prime d'activitÃ© complÃ¨te votre salaire. Elle est trÃ¨s sous-utilisÃ©e â des millions de personnes y ont droit sans le savoir.",
-        action: "Simulez et faites votre demande directement sur caf.fr. C'est rapide. Votre CCAS peut vous aider gratuitement Ã  remplir le dossier.",
-        contact: "ð CAF Saint-Omer : 3230 â caf.fr â CCAS de votre commune",
+        amount: "Jusqu'à 600 € / mois selon situation",
+        description: "Si vous reprenez un emploi ou avez un emploi à temps partiel avec de faibles revenus, la prime d'activité complète votre salaire. Elle est très sous-utilisée — des millions de personnes y ont droit sans le savoir.",
+        action: "Simulez et faites votre demande directement sur caf.fr. C'est rapide. Votre CCAS peut vous aider gratuitement à remplir le dossier.",
+        contact: "📞 CAF Saint-Omer : 3230 — caf.fr — CCAS de votre commune",
         check: a => a.situation === 'emploi_precaire' || (['chomage_recent','chomage_long'].includes(a.situation) && ['faible','moyen'].includes(a.revenus))
     },
     {
         id: 'apl',
-        title: "Aide PersonnalisÃ©e au Logement (APL)",
+        title: "Aide Personnalisée au Logement (APL)",
         category: "Logement",
         priority: "important",
-        amount: "100 â¬ Ã  400 â¬ / mois selon votre loyer",
-        description: "L'APL rÃ©duit votre loyer directement. Elle est versÃ©e Ã  votre bailleur ou Ã  vous si votre loyer n'est pas conventionnÃ©. VÃ©rifiez si vous y avez droit â les critÃ¨res d'Ã©ligibilitÃ© changent rÃ©guliÃ¨rement.",
-        action: "Simulez sur caf.fr en 2 minutes. La demande se fait entiÃ¨rement en ligne. En cas de difficultÃ©, votre CCAS vous accompagne gratuitement.",
-        contact: "ð CAF Saint-Omer : 3230 â caf.fr",
+        amount: "100 € à 400 € / mois selon votre loyer",
+        description: "L'APL réduit votre loyer directement. Elle est versée à votre bailleur ou à vous si votre loyer n'est pas conventionné. Vérifiez si vous y avez droit — les critères d'éligibilité changent régulièrement.",
+        action: "Simulez sur caf.fr en 2 minutes. La demande se fait entièrement en ligne. En cas de difficulté, votre CCAS vous accompagne gratuitement.",
+        contact: "📞 CAF Saint-Omer : 3230 — caf.fr",
         check: a => a.logement === 'locataire' && ['zero','faible','moyen'].includes(a.revenus)
     },
     {
@@ -655,10 +655,10 @@ const AIDS = [
         title: "Contrat d'Engagement Jeune (CEJ)",
         category: "Revenus",
         priority: "urgent",
-        amount: "Jusqu'Ã  528 â¬ / mois",
-        description: "Si vous avez moins de 26 ans, le CEJ vous garantit un accompagnement intensif vers l'emploi ou la formation, avec une allocation mensuelle. La Mission Locale de Saint-Omer est le point d'entrÃ©e.",
-        action: "Rendez-vous sans RDV Ã  la Mission Locale de Saint-Omer avec votre piÃ¨ce d'identitÃ©. L'accompagnement commence dans la semaine.",
-        contact: "ð Mission Locale de l'Audomarois : 03 21 88 80 20 â 6 rue Edmond Richard, Saint-Omer",
+        amount: "Jusqu'à 528 € / mois",
+        description: "Si vous avez moins de 26 ans, le CEJ vous garantit un accompagnement intensif vers l'emploi ou la formation, avec une allocation mensuelle. La Mission Locale de Saint-Omer est le point d'entrée.",
+        action: "Rendez-vous sans RDV à la Mission Locale de Saint-Omer avec votre pièce d'identité. L'accompagnement commence dans la semaine.",
+        contact: "📞 Mission Locale de l'Audomarois : 03 21 88 80 20 — 6 rue Edmond Richard, Saint-Omer",
         check: a => a.age === 'moins26'
     },
     {
@@ -666,21 +666,21 @@ const AIDS = [
         title: "Compte Personnel de Formation (CPF)",
         category: "Formation",
         priority: "important",
-        amount: "500 â¬ Ã  800 â¬ de droits accumulÃ©s (+ abondement possible)",
-        description: "Vous avez des droits formation accumulÃ©s tout au long de votre carriÃ¨re. Ils ne disparaissent pas aprÃ¨s une perte d'emploi. Utilisez-les pour vous former Ã  un nouveau mÃ©tier ou obtenir une certification.",
-        action: "Consultez votre solde sur moncompteformation.gouv.fr. Si vos droits sont insuffisants, France Travail peut les abonder lors de votre accompagnement. Demandez-le explicitement Ã  votre conseiller.",
-        contact: "ð moncompteformation.gouv.fr â France Travail Saint-Omer : 3949 pour l'abondement",
+        amount: "500 € à 800 € de droits accumulés (+ abondement possible)",
+        description: "Vous avez des droits formation accumulés tout au long de votre carrière. Ils ne disparaissent pas après une perte d'emploi. Utilisez-les pour vous former à un nouveau métier ou obtenir une certification.",
+        action: "Consultez votre solde sur moncompteformation.gouv.fr. Si vos droits sont insuffisants, France Travail peut les abonder lors de votre accompagnement. Demandez-le explicitement à votre conseiller.",
+        contact: "📞 moncompteformation.gouv.fr — France Travail Saint-Omer : 3949 pour l'abondement",
         check: a => ['chomage_recent','chomage_long','reconversion','emploi_precaire'].includes(a.situation)
     },
     {
         id: 'formation_hdf',
-        title: "ChÃ¨que Formation Hauts-de-France",
+        title: "Chèque Formation Hauts-de-France",
         category: "Formation",
         priority: "important",
         amount: "Financement total ou partiel selon la formation",
-        description: "La RÃ©gion Hauts-de-France finance des formations qualifiantes pour les demandeurs d'emploi dans les secteurs en tension : logistique, numÃ©rique, services Ã  la personne, BTP. Certaines formations sont disponibles Ã  Longuenesse ou Saint-Omer.",
-        action: "Parlez-en Ã  votre conseiller France Travail ou Ã  la Mission Locale. PrÃ©cisez les formations qui vous intÃ©ressent â ils peuvent souvent dÃ©bloquer un financement rapide.",
-        contact: "ð France Travail Saint-Omer : 3949 â RÃ©gion Hauts-de-France : hautsdefrance.fr/formation",
+        description: "La Région Hauts-de-France finance des formations qualifiantes pour les demandeurs d'emploi dans les secteurs en tension : logistique, numérique, services à la personne, BTP. Certaines formations sont disponibles à Longuenesse ou Saint-Omer.",
+        action: "Parlez-en à votre conseiller France Travail ou à la Mission Locale. Précisez les formations qui vous intéressent — ils peuvent souvent débloquer un financement rapide.",
+        contact: "📞 France Travail Saint-Omer : 3949 — Région Hauts-de-France : hautsdefrance.fr/formation",
         check: a => ['reconversion','chomage_long'].includes(a.situation) || a.priorite === 'formation'
     },
     {
@@ -688,54 +688,54 @@ const AIDS = [
         title: "Aide d'Urgence du CCAS",
         category: "Urgence",
         priority: "urgent",
-        amount: "Variable : bons alimentaires, factures, loyerâ¦",
-        description: "Le Centre Communal d'Action Sociale de votre commune peut vous aider immÃ©diatement en cas de crise : aide alimentaire, paiement d'une facture d'Ã©nergie, loyer impayÃ©, produits de premiÃ¨re nÃ©cessitÃ©. C'est confidentiel et sans jugement.",
-        action: "Appelez ou prÃ©sentez-vous directement Ã  votre CCAS. En cas d'urgence, vous n'avez pas besoin de rendez-vous dans la plupart des communes. Apportez votre piÃ¨ce d'identitÃ© et un justificatif de domicile.",
-        contact: "ð CCAS Saint-Omer : 03 21 98 26 00 â CCAS Longuenesse : 03 21 93 50 00 â CCAS Arques : 03 21 38 59 90 â Pour les autres communes, contactez votre mairie",
+        amount: "Variable : bons alimentaires, factures, loyer…",
+        description: "Le Centre Communal d'Action Sociale de votre commune peut vous aider immédiatement en cas de crise : aide alimentaire, paiement d'une facture d'énergie, loyer impayé, produits de première nécessité. C'est confidentiel et sans jugement.",
+        action: "Appelez ou présentez-vous directement à votre CCAS. En cas d'urgence, vous n'avez pas besoin de rendez-vous dans la plupart des communes. Apportez votre pièce d'identité et un justificatif de domicile.",
+        contact: "📞 CCAS Saint-Omer : 03 21 98 26 00 — CCAS Longuenesse : 03 21 93 50 00 — CCAS Arques : 03 21 38 59 90 — Pour les autres communes, contactez votre mairie",
         check: a => a.revenus === 'zero' || (a.revenus === 'faible' && ['seul','seul_enfants'].includes(a.famille))
     },
     {
         id: 'aide_alimentaire',
-        title: "Aide Alimentaire (Restos du CÅur, Banque Alimentaire)",
+        title: "Aide Alimentaire (Restos du Cœur, Banque Alimentaire)",
         category: "Urgence",
         priority: "urgent",
-        amount: "Colis alimentaires, repas chauds â Gratuit",
-        description: "Si vous avez du mal Ã  vous nourrir, les associations locales distribuent des colis alimentaires sans condition de ressources ni dÃ©marche administrative complexe. C'est confidentiel. Il n'y a pas de honte Ã  demander.",
-        action: "PrÃ©sentez-vous aux Restos du CÅur avec une piÃ¨ce d'identitÃ©. L'inscription se fait sur place, rapidement. La Banque Alimentaire distribue via les Ã©piceries sociales de votre commune.",
-        contact: "ð Restos du CÅur Saint-Omer : 03 21 98 57 37 â Banque Alimentaire Pas-de-Calais : 03 21 35 01 23",
+        amount: "Colis alimentaires, repas chauds — Gratuit",
+        description: "Si vous avez du mal à vous nourrir, les associations locales distribuent des colis alimentaires sans condition de ressources ni démarche administrative complexe. C'est confidentiel. Il n'y a pas de honte à demander.",
+        action: "Présentez-vous aux Restos du Cœur avec une pièce d'identité. L'inscription se fait sur place, rapidement. La Banque Alimentaire distribue via les épiceries sociales de votre commune.",
+        contact: "📞 Restos du Cœur Saint-Omer : 03 21 98 57 37 — Banque Alimentaire Pas-de-Calais : 03 21 35 01 23",
         check: a => a.revenus === 'zero'
     },
     {
         id: 'cheque_energie',
-        title: "ChÃ¨que Ãnergie + FSL (Fonds SolidaritÃ© Logement)",
+        title: "Chèque Énergie + FSL (Fonds Solidarité Logement)",
         category: "Logement",
         priority: "important",
-        amount: "48 â¬ Ã  277 â¬ / an â FSL jusqu'Ã  plusieurs centaines â¬",
-        description: "Le chÃ¨que Ã©nergie est envoyÃ© automatiquement aux foyers Ã  faibles revenus pour payer leurs factures de gaz ou d'Ã©lectricitÃ©. En cas d'impayÃ© urgent, le FSL du DÃ©partement peut intervenir rapidement.",
-        action: "Si vous n'avez pas reÃ§u votre chÃ¨que Ã©nergie, faites la demande sur chequeenergie.gouv.fr. Pour le FSL, contactez votre travailleur social, votre CCAS ou le DÃ©partement du Pas-de-Calais.",
-        contact: "ð chequeenergie.gouv.fr â DÃ©partement Pas-de-Calais : 03 21 21 62 62",
+        amount: "48 € à 277 € / an — FSL jusqu'à plusieurs centaines €",
+        description: "Le chèque énergie est envoyé automatiquement aux foyers à faibles revenus pour payer leurs factures de gaz ou d'électricité. En cas d'impayé urgent, le FSL du Département peut intervenir rapidement.",
+        action: "Si vous n'avez pas reçu votre chèque énergie, faites la demande sur chequeenergie.gouv.fr. Pour le FSL, contactez votre travailleur social, votre CCAS ou le Département du Pas-de-Calais.",
+        contact: "📞 chequeenergie.gouv.fr — Département Pas-de-Calais : 03 21 21 62 62",
         check: a => ['zero','faible'].includes(a.revenus) && a.logement !== 'heberge'
     },
     {
         id: 'acre',
-        title: "ACRE + ARCE â Aides Ã  la CrÃ©ation d'Entreprise",
-        category: "CrÃ©ation",
+        title: "ACRE + ARCE — Aides à la Création d'Entreprise",
+        category: "Création",
         priority: "important",
-        amount: "ExonÃ©ration de charges 1 an + jusqu'Ã  45% du chÃ´mage en capital",
-        description: "L'ACRE exonÃ¨re les crÃ©ateurs d'entreprise de cotisations sociales pendant 12 mois. L'ARCE permet de toucher 45 % de vos droits chÃ´mage en capital de dÃ©marrage. CombinÃ©es, ces aides peuvent reprÃ©senter plusieurs milliers d'euros.",
-        action: "Contactez la CCI Artois ou BGE Pas-de-Calais pour Ãªtre accompagnÃ©. DÃ©posez votre demande d'ACRE Ã  l'URSSAF avant la crÃ©ation, et demandez l'ARCE Ã  France Travail. Ne crÃ©ez pas sans accompagnement â les erreurs de dÃ©but sont Ã©vitables.",
-        contact: "ð CCI Artois : 03 21 23 92 00 â BGE Pas-de-Calais : 03 21 57 93 50 â France Travail : 3949",
+        amount: "Exonération de charges 1 an + jusqu'à 45% du chômage en capital",
+        description: "L'ACRE exonère les créateurs d'entreprise de cotisations sociales pendant 12 mois. L'ARCE permet de toucher 45 % de vos droits chômage en capital de démarrage. Combinées, ces aides peuvent représenter plusieurs milliers d'euros.",
+        action: "Contactez la CCI Artois ou BGE Pas-de-Calais pour être accompagné. Déposez votre demande d'ACRE à l'URSSAF avant la création, et demandez l'ARCE à France Travail. Ne créez pas sans accompagnement — les erreurs de début sont évitables.",
+        contact: "📞 CCI Artois : 03 21 23 92 00 — BGE Pas-de-Calais : 03 21 57 93 50 — France Travail : 3949",
         check: a => ['creation','reconversion'].includes(a.situation) || a.priorite === 'creation'
     },
     {
         id: 'ass',
-        title: "Allocation de SolidaritÃ© SpÃ©cifique (ASS)",
+        title: "Allocation de Solidarité Spécifique (ASS)",
         category: "Revenus",
         priority: "important",
-        amount: "~545 â¬ / mois",
-        description: "Si vous avez Ã©puisÃ© vos droits au chÃ´mage et travaillÃ© au moins 5 ans dans les 10 derniÃ¨res annÃ©es, l'ASS maintient un revenu. Essentielle pour les chÃ´meurs de longue durÃ©e et les seniors. Ã demander AVANT la fin des droits ARE.",
-        action: "Signalez-vous Ã  France Travail 2 mois avant la fin de votre ARE pour prÃ©parer le dossier ASS. N'attendez pas d'Ãªtre sans revenu â le traitement prend du temps.",
-        contact: "ð France Travail Saint-Omer : 3949",
+        amount: "~545 € / mois",
+        description: "Si vous avez épuisé vos droits au chômage et travaillé au moins 5 ans dans les 10 dernières années, l'ASS maintient un revenu. Essentielle pour les chômeurs de longue durée et les seniors. À demander AVANT la fin des droits ARE.",
+        action: "Signalez-vous à France Travail 2 mois avant la fin de votre ARE pour préparer le dossier ASS. N'attendez pas d'être sans revenu — le traitement prend du temps.",
+        contact: "📞 France Travail Saint-Omer : 3949",
         check: a => ['46a55','plus55'].includes(a.age) && a.situation === 'chomage_long'
     },
     {
@@ -743,44 +743,44 @@ const AIDS = [
         title: "Fonds d'Aide aux Jeunes (FAJ)",
         category: "Urgence",
         priority: "important",
-        amount: "Aide ponctuelle jusqu'Ã  500 â¬",
-        description: "Pour les jeunes de 18 Ã  25 ans en difficultÃ© : financer un permis de conduire, une formation courte, une caution de logement, un Ã©quipement professionnel. Les dossiers sont traitÃ©s rapidement.",
-        action: "Contactez la Mission Locale ou votre CCAS. Le dossier est simple et la rÃ©ponse arrive sous 2 semaines.",
-        contact: "ð Mission Locale de l'Audomarois : 03 21 88 80 20",
+        amount: "Aide ponctuelle jusqu'à 500 €",
+        description: "Pour les jeunes de 18 à 25 ans en difficulté : financer un permis de conduire, une formation courte, une caution de logement, un équipement professionnel. Les dossiers sont traités rapidement.",
+        action: "Contactez la Mission Locale ou votre CCAS. Le dossier est simple et la réponse arrive sous 2 semaines.",
+        contact: "📞 Mission Locale de l'Audomarois : 03 21 88 80 20",
         check: a => a.age === 'moins26' && ['zero','faible'].includes(a.revenus)
     },
     {
         id: 'pro_a',
-        title: "Pro-A â Reconversion par l'Alternance",
+        title: "Pro-A — Reconversion par l'Alternance",
         category: "Formation",
         priority: "utile",
-        amount: "Salaire maintenu + formation 100 % financÃ©e",
-        description: "Vous gardez un contrat de travail tout en vous formant Ã  un nouveau mÃ©tier en alternance. IdÃ©al pour ne pas couper vos revenus lors d'une reconversion. Des entreprises de l'Audomarois recrutent actuellement en Pro-A.",
-        action: "Renseignez-vous auprÃ¨s de votre OPCO (OpÃ©rateur de CompÃ©tences liÃ© Ã  votre ancien secteur) ou de France Travail. Ils ont la liste des employeurs locaux en Pro-A.",
-        contact: "ð France Travail Saint-Omer : 3949",
+        amount: "Salaire maintenu + formation 100 % financée",
+        description: "Vous gardez un contrat de travail tout en vous formant à un nouveau métier en alternance. Idéal pour ne pas couper vos revenus lors d'une reconversion. Des entreprises de l'Audomarois recrutent actuellement en Pro-A.",
+        action: "Renseignez-vous auprès de votre OPCO (Opérateur de Compétences lié à votre ancien secteur) ou de France Travail. Ils ont la liste des employeurs locaux en Pro-A.",
+        contact: "📞 France Travail Saint-Omer : 3949",
         check: a => ['reconversion','emploi_precaire'].includes(a.situation)
     },
     {
         id: 'mobilite',
-        title: "Aide Permis de Conduire & MobilitÃ©",
+        title: "Aide Permis de Conduire & Mobilité",
         category: "Emploi",
         priority: "utile",
-        amount: "Jusqu'Ã  1 200 â¬ pour le permis B",
-        description: "France Travail peut financer votre permis de conduire si l'absence de permis est un frein Ã  l'emploi. En zone rurale comme dans l'Audomarois, c'est souvent dÃ©terminant pour accÃ©der aux emplois.",
-        action: "Mentionnez explicitement ce besoin Ã  votre conseiller France Travail. Indiquez que vous habitez en zone rurale et que le permis conditionne vos opportunitÃ©s d'emploi.",
-        contact: "ð France Travail Saint-Omer : 3949",
+        amount: "Jusqu'à 1 200 € pour le permis B",
+        description: "France Travail peut financer votre permis de conduire si l'absence de permis est un frein à l'emploi. En zone rurale comme dans l'Audomarois, c'est souvent déterminant pour accéder aux emplois.",
+        action: "Mentionnez explicitement ce besoin à votre conseiller France Travail. Indiquez que vous habitez en zone rurale et que le permis conditionne vos opportunités d'emploi.",
+        contact: "📞 France Travail Saint-Omer : 3949",
         check: () => true
     }
 ];
 
 /* ======================================================
-   CONFIGURATION â Ã REMPLIR APRÃS DÃPLOIEMENT APPS SCRIPT
+   CONFIGURATION — À REMPLIR APRÈS DÉPLOIEMENT APPS SCRIPT
    ====================================================== */
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyFhxacFo1TOmLZnh_nGVAnzbySJpJn8V1Qn3PLrwD_oYVQXYFcQTUVYhYcNGYh0S3_/exec';
-// â Suivez le guide dans google-apps-script.js pour obtenir cette URL
+// → Suivez le guide dans google-apps-script.js pour obtenir cette URL
 
 /* ======================================================
-   ÃTAT DE L'APPLICATION
+   ÉTAT DE L'APPLICATION
    ====================================================== */
 let currentQuestionIndex = 0;
 let answers = {};
@@ -825,13 +825,13 @@ function nextStep() {
         renderQuestion();
         window.scrollTo(0, 0);
     } else {
-        // DerniÃ¨re question â Ã©cran email avant les rÃ©sultats
+        // Dernière question → écran email avant les résultats
         showEmailScreen();
     }
 }
 
 /* ======================================================
-   ÃCRAN EMAIL
+   ÉCRAN EMAIL
    ====================================================== */
 function showEmailScreen() {
     document.getElementById('progressFill').style.width = '100%';
@@ -843,13 +843,13 @@ function submitEmail() {
     const email    = document.getElementById('emailInput').value.trim();
     const consent  = document.getElementById('consentBox').checked;
 
-    // Envoyer les donnÃ©es (non-bloquant â les rÃ©sultats s'affichent quoi qu'il arrive)
+    // Envoyer les données (non-bloquant — les résultats s'affichent quoi qu'il arrive)
     sendToSheets(email, consent);
     showLoading();
 }
 
 function skipEmail() {
-    sendToSheets('', false); // envoie quand mÃªme les rÃ©ponses anonymes
+    sendToSheets('', false); // envoie quand même les réponses anonymes
     showLoading();
 }
 
@@ -857,7 +857,7 @@ function skipEmail() {
    ENVOI VERS GOOGLE SHEETS
    ====================================================== */
 function sendToSheets(email, consent) {
-    if (!SHEETS_URL || SHEETS_URL.includes('REMPLACER')) return; // pas encore configurÃ©
+    if (!SHEETS_URL || SHEETS_URL.includes('REMPLACER')) return; // pas encore configuré
 
     const payload = {
         timestamp:  new Date().toISOString(),
@@ -874,7 +874,7 @@ function sendToSheets(email, consent) {
         nb_aides:   eligibleAids().length
     };
 
-    // Fire-and-forget : on n'attend pas la rÃ©ponse pour afficher les rÃ©sultats
+    // Fire-and-forget : on n'attend pas la réponse pour afficher les résultats
     fetch(SHEETS_URL, {
         method:  'POST',
         mode:    'no-cors',        // Apps Script accepte sans CORS preflight
@@ -925,7 +925,7 @@ function renderQuestion() {
 
     const btnNext = document.getElementById('btnNext');
     btnNext.disabled = !answers[q.id];
-    btnNext.textContent = currentQuestionIndex === QUESTIONS.length - 1 ? 'Voir mes rÃ©sultats â' : 'Suivant â';
+    btnNext.textContent = currentQuestionIndex === QUESTIONS.length - 1 ? 'Voir mes résultats →' : 'Suivant →';
 
     document.getElementById('btnBack').style.display = currentQuestionIndex === 0 ? 'none' : 'flex';
 }
@@ -954,30 +954,30 @@ function showLoading() {
 }
 
 /* ======================================================
-   MOTEUR D'ÃLIGIBILITÃ
+   MOTEUR D'ÉLIGIBILITÉ
    ====================================================== */
 function eligibleAids() {
     return AIDS.filter(a => a.check(answers));
 }
 
 /* ======================================================
-   RENDU DES RÃSULTATS
+   RENDU DES RÉSULTATS
    ====================================================== */
 const PRIORITY_ORDER = { urgent: 0, important: 1, utile: 2 };
 const PRIORITY_LABEL = { urgent: 'Urgent', important: 'Important', utile: 'Utile' };
 const PRIORITY_CLASS = { urgent: 'badge-urgent', important: 'badge-important', utile: 'badge-utile' };
-const CAT_ICONS = { Urgence:'ð', Revenus:'ð°', Logement:'ð ', Formation:'ð', Reconversion:'ð', Emploi:'ð¼', CrÃ©ation:'ð' };
+const CAT_ICONS = { Urgence:'🆘', Revenus:'💰', Logement:'🏠', Formation:'📚', Reconversion:'🔄', Emploi:'💼', Création:'🚀' };
 
 function renderResults() {
     const eligible = eligibleAids().sort((a,b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
 
-    // Grouper par catÃ©gorie
+    // Grouper par catégorie
     const cats = {};
     eligible.forEach(a => { (cats[a.category] = cats[a.category] || []).push(a); });
 
     let cardsHTML = '';
     Object.entries(cats).forEach(([cat, list]) => {
-        cardsHTML += `<div class="section-title">${CAT_ICONS[cat] || 'ð'} ${cat}</div>`;
+        cardsHTML += `<div class="section-title">${CAT_ICONS[cat] || '📋'} ${cat}</div>`;
         list.forEach(aid => {
             cardsHTML += `
             <div class="aid-card">
@@ -985,13 +985,13 @@ function renderResults() {
                     <span class="aid-badge ${PRIORITY_CLASS[aid.priority]}">${PRIORITY_LABEL[aid.priority]}</span>
                     <div>
                         <div class="aid-title">${aid.title}</div>
-                        <div class="aid-amount">ð¶ ${aid.amount}</div>
+                        <div class="aid-amount">💶 ${aid.amount}</div>
                     </div>
                 </div>
                 <div class="aid-body">
                     <p class="aid-description">${aid.description}</p>
                     <div class="aid-action">
-                        <div class="aid-action-title">ð Comment l'obtenir concrÃ¨tement</div>
+                        <div class="aid-action-title">📌 Comment l'obtenir concrètement</div>
                         <div class="aid-action-text">${aid.action}</div>
                         <div class="aid-contact">${aid.contact}</div>
                     </div>
@@ -1000,7 +1000,7 @@ function renderResults() {
         });
     });
 
-    // Plan d'action â top 3 urgents
+    // Plan d'action — top 3 urgents
     const topUrgent = eligible.filter(a => a.priority === 'urgent').slice(0,3);
     const actionHTML = topUrgent.length
         ? topUrgent.map((a,i) => `
@@ -1013,48 +1013,48 @@ function renderResults() {
             </div>`).join('')
         : `<div style="opacity:.8;font-size:.88rem">Commencez par appeler France Travail (3949) pour vous inscrire comme demandeur d'emploi.</div>`;
 
-    // Contacts de rÃ©fÃ©rence selon commune
+    // Contacts de référence selon commune
     const commune = answers.commune || '';
     const isArques = commune.toLowerCase().includes('arques');
     const isSaintOmer = commune.toLowerCase().includes('saint-omer') || commune.toLowerCase().includes('longuenesse');
-    const cspNote = isArques ? '<br>â ï¸ <strong>Ex-salariÃ©Â·e d\'Arc International ?</strong> RÃ©clamez le CSP (75 % du salaire) Ã  France Travail avant 21 jours.' : '';
+    const cspNote = isArques ? '<br>⚠️ <strong>Ex-salarié·e d\'Arc International ?</strong> Réclamez le CSP (75 % du salaire) à France Travail avant 21 jours.' : '';
 
     const screen = document.getElementById('screen-results');
     screen.innerHTML = `
         <div class="results-header">
             <span class="results-count">${eligible.length}</span>
-            <div class="results-label">aide${eligible.length > 1 ? 's' : ''} identifiÃ©e${eligible.length > 1 ? 's' : ''} pour votre situation</div>
-            <div class="results-banner">â ï¸ Ne laissez pas ces droits dormir</div><br>
-            <button class="btn-print" onclick="window.print()">ð¨ï¸ Imprimer / Sauvegarder en PDF</button>
+            <div class="results-label">aide${eligible.length > 1 ? 's' : ''} identifiée${eligible.length > 1 ? 's' : ''} pour votre situation</div>
+            <div class="results-banner">⚠️ Ne laissez pas ces droits dormir</div><br>
+            <button class="btn-print" onclick="window.print()">🖨️ Imprimer / Sauvegarder en PDF</button>
         </div>
 
         ${cardsHTML}
 
         <div class="action-plan">
-            <div class="action-plan-title">ð¯ Vos 3 dÃ©marches prioritaires cette semaine</div>
+            <div class="action-plan-title">🎯 Vos 3 démarches prioritaires cette semaine</div>
             ${actionHTML}
             ${cspNote}
             <div class="action-plan-tip">
-                ð¡ Conseil : plusieurs de ces aides sont cumulables. Commencez par France Travail (3949) â ils peuvent vous orienter vers toutes les autres aides en une seule rencontre.
+                💡 Conseil : plusieurs de ces aides sont cumulables. Commencez par France Travail (3949) — ils peuvent vous orienter vers toutes les autres aides en une seule rencontre.
             </div>
         </div>
 
         <div class="contacts-box">
             <div class="contacts-title">Besoin d'aide pour remplir vos dossiers ? Ces services sont gratuits :</div>
             <div class="contacts-list">
-                ðï¸ <strong>CCAS de votre commune</strong> â accompagnement pour tous les dossiers sociaux<br>
-                ð¢ <strong>France Travail Saint-Omer</strong> â 3949 (gratuit) â 2 rue du MarÃ©chal Foch<br>
-                ð¨âð©âð¦ <strong>CAF Saint-Omer</strong> â 3230 ou caf.fr<br>
-                ð <strong>Mission Locale (â26 ans)</strong> â 03 21 88 80 20 â 6 rue Edmond Richard<br>
-                ð¼ <strong>CCI Artois (crÃ©ation d'entreprise)</strong> â 03 21 23 92 00
+                🏛️ <strong>CCAS de votre commune</strong> — accompagnement pour tous les dossiers sociaux<br>
+                🏢 <strong>France Travail Saint-Omer</strong> — 3949 (gratuit) — 2 rue du Maréchal Foch<br>
+                👨‍👩‍👦 <strong>CAF Saint-Omer</strong> — 3230 ou caf.fr<br>
+                🎓 <strong>Mission Locale (−26 ans)</strong> — 03 21 88 80 20 — 6 rue Edmond Richard<br>
+                💼 <strong>CCI Artois (création d'entreprise)</strong> — 03 21 23 92 00
             </div>
         </div>
 
         <div class="footer">
-            <p>Plateforme <strong>Mes Droits Audomarois</strong> â 2025</p>
-            <p style="margin-top:4px;">Les montants sont indicatifs. VÃ©rifiez votre Ã©ligibilitÃ© auprÃ¨s des organismes concernÃ©s.</p>
-            <p style="margin-top:10px;"><a href="javascript:void(0)" onclick="restartApp()">â Recommencer pour une autre situation</a></p>
-            <p style="margin-top:8px;"><a href="javascript:void(0)" onclick="openLegalModal()">Mentions lÃ©gales &amp; ConfidentialitÃ©</a></p>
+            <p>Plateforme <strong>Mes Droits Audomarois</strong> — 2025</p>
+            <p style="margin-top:4px;">Les montants sont indicatifs. Vérifiez votre éligibilité auprès des organismes concernés.</p>
+            <p style="margin-top:10px;"><a href="javascript:void(0)" onclick="restartApp()">← Recommencer pour une autre situation</a></p>
+            <p style="margin-top:8px;"><a href="javascript:void(0)" onclick="openLegalModal()">Mentions légales &amp; Confidentialité</a></p>
         </div>`;
 
     showScreen('results');
