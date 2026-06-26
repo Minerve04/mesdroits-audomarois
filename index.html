@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez toutes les aides auxquelles vous avez droit dans l'Audomarois. Chômage, reconversion, formation, aides d'urgence. 5 minutes chrono.">
+    <title>Mes Droits Audomarois — Vos aides en 5 minutes</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary:       #1e40af;
+            --primary-light: #dbeafe;
+            --primary-dark:  #1e3a8a;
+            --success:       #065f46;
+            --success-light: #d1fae5;
+            --warning:       #92400e;
+            --warning-light: #fef3c7;
+            --danger:        #991b1b;
+            --danger-light:  #fee2e2;
+            --gray-50:  #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --radius: 12px;
+            --shadow:    0 1px 3px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 14px 20px 10px;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+        .header-inner {
+            max-width: 640px; margin: 0 auto;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .logo { font-size: 1.15rem; font-weight: 800; letter-spacing: -.5px; }
+        .logo span { color: #93c5fd; }
+        .step-indicator { font-size: .8rem; color: rgba(255,255,255,.7); margin-left: auto; }
+        .progress-bar { height: 3px; background: rgba(255,255,255,.25); border-radius: 2px; margin-top: 8px; }
+        .progress-fill { height: 100%; background: #93c5fd; border-radius: 2px; transition: width .4s ease; }
+
+        /* ── MAIN ── */
+        .main { max-width: 640px; margin: 0 auto; padding: 24px 16px 80px; }
+
+        /* ── SCREENS ── */
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeUp .25s ease; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0);   }
+        }
+
+        /* ── INTRO ── */
+        .intro-hero {
+            background: white; border-radius: var(--radius);
+            padding: 32px 24px; text-align: center;
+            box-shadow: var(--shadow); margin-bottom: 16px;
+        }
+        .intro-icon { font-size: 3rem; margin-bottom: 14px; }
+        .intro-title {
+            font-size: 1.55rem; font-weight: 800;
+            color: var(--primary); line-height: 1.25; margin-bottom: 10px;
+        }
+        .intro-subtitle { font-size: .95rem; color: var(--gray-600); margin-bottom: 24px; }
+        .intro-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 26px; }
+        .stat-card { background: var(--primary-light); border-radius: 8px; padding: 12px 6px; text-align: center; }
+        .stat-number { font-size: 1.4rem; font-weight: 800; color: var(--primary); display: block; }
+        .stat-label  { font-size: .72rem; color: var(--gray-600); display: block; }
+        .btn-start {
+            display: block; width: 100%; padding: 15px;
+            background: var(--primary); color: white; border: none;
+            border-radius: var(--radius); font-size: 1.05rem; font-weight: 700;
+            cursor: pointer; transition: background .2s;
+        }
+        .btn-start:hover { background: var(--primary-dark); }
+        .intro-note { font-size: .78rem; color: var(--gray-600); margin-top: 10px; }
+
+        .intro-features {
+            background: white; border-radius: var(--radius);
+            padding: 20px; box-shadow: var(--shadow);
+        }
+        .intro-features p { font-size: .85rem; color: var(--gray-600); font-weight: 600; text-align: center; margin-bottom: 12px; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: .83rem; color: var(--gray-700); }
+        .feature-grid div { display: flex; align-items: center; gap: 5px; }
+
+        /* ── QUESTION CARD ── */
+        .question-card {
+            background: white; border-radius: var(--radius);
+            padding: 26px 22px; box-shadow: var(--shadow);
+        }
+        .question-step {
+            font-size: .75rem; font-weight: 700;
+            color: var(--primary); text-transform: uppercase;
+            letter-spacing: .5px; margin-bottom: 6px;
+        }
+        .question-text { font-size: 1.15rem; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; line-height: 1.3; }
+        .question-hint { font-size: .82rem; color: var(--gray-600); margin-bottom: 20px; }
+
+        .options { display: flex; flex-direction: column; gap: 9px; }
+        .option {
+            display: flex; align-items: center; gap: 13px;
+            padding: 13px 15px; border: 2px solid var(--gray-200);
+            border-radius: 10px; cursor: pointer; background: white;
+            text-align: left; width: 100%; font-size: .9rem; color: var(--gray-700);
+            transition: border-color .15s, background .15s;
+        }
+        .option:hover  { border-color: var(--primary); background: var(--primary-light); }
+        .option.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); font-weight: 600; }
+        .option-icon { font-size: 1.15rem; flex-shrink: 0; }
+        .option-text { flex: 1; }
+        .option-sub { font-size: .76rem; color: var(--gray-600); display: block; margin-top: 1px; font-weight: 400; }
+        .option.selected .option-sub { color: #3b82f6; }
+
+        .commune-select {
+            width: 100%; padding: 13px 40px 13px 14px;
+            border: 2px solid var(--gray-200); border-radius: 10px;
+            font-size: .9rem; color: var(--gray-700);
+            background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+            -webkit-appearance: none; cursor: pointer; transition: border-color .15s;
+        }
+        .commune-select:focus { outline: none; border-color: var(--primary); }
+
+        /* ── NAV ── */
+        .nav { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-back {
+            padding: 12px 18px; border: 2px solid var(--gray-200);
+            border-radius: 10px; background: white; color: var(--gray-600);
+            font-size: .88rem; font-weight: 600; cursor: pointer; transition: border-color .15s;
+        }
+        .btn-back:hover { border-color: var(--gray-600); }
+        .btn-next {
+            flex: 1; padding: 13px; background: var(--primary); color: white;
+            border: none; border-radius: 10px; font-size: .97rem; font-weight: 700;
+            cursor: pointer; transition: background .2s;
+        }
+        .btn-next:hover { background: var(--primary-dark); }
+        .btn-next:disabled { background: var(--gray-200); color: var(--gray-600); cursor: not-allowed; }
+
+        /* ── LOADING ── */
+        .loading-screen { text-align: center; padding: 70px 20px; }
+        .spinner {
+            width: 46px; height: 46px;
+            border: 4px solid var(--gray-200); border-top-color: var(--primary);
+            border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 18px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { font-size: 1.05rem; font-weight: 700; color: var(--gray-700); margin-bottom: 6px; }
+        .loading-sub  { font-size: .82rem; color: var(--gray-600); }
+
+        /* ── RESULTS ── */
+        .results-header {
+            background: white; border-radius: var(--radius);
+            padding: 24px; box-shadow: var(--shadow);
+            margin-bottom: 18px; text-align: center;
+        }
+        .results-count { font-size: 2.8rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; }
+        .results-label { font-size: .95rem; color: var(--gray-600); margin: 4px 0 12px; }
+        .results-banner {
+            font-size: .9rem; font-weight: 700; color: var(--success);
+            background: var(--success-light); padding: 8px 16px;
+            border-radius: 20px; display: inline-block; margin-bottom: 14px;
+        }
+        .btn-print {
+            padding: 9px 18px; border: 2px solid var(--primary);
+            border-radius: 8px; background: white; color: var(--primary);
+            font-size: .85rem; font-weight: 700; cursor: pointer; transition: all .15s;
+        }
+        .btn-print:hover { background: var(--primary); color: white; }
+
+        .section-title {
+            font-size: .78rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .5px; color: var(--gray-600); margin: 20px 0 8px;
+        }
+
+        /* ── AID CARD ── */
+        .aid-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 10px; overflow: hidden; }
+        .aid-card-header { padding: 15px 18px 10px; display: flex; align-items: flex-start; gap: 10px; }
+        .aid-badge {
+            padding: 3px 9px; border-radius: 20px;
+            font-size: .68rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: .3px; flex-shrink: 0; margin-top: 3px;
+        }
+        .badge-urgent   { background: var(--danger-light);  color: var(--danger);  }
+        .badge-important{ background: var(--warning-light); color: var(--warning); }
+        .badge-utile    { background: var(--primary-light); color: var(--primary); }
+        .aid-title  { font-size: .97rem; font-weight: 800; color: var(--gray-900); line-height: 1.3; }
+        .aid-amount { font-size: .85rem; font-weight: 600; color: var(--success); margin-top: 3px; }
+        .aid-body { padding: 0 18px 15px; }
+        .aid-description { font-size: .83rem; color: var(--gray-600); margin-bottom: 11px; line-height: 1.55; }
+        .aid-action { background: var(--gray-50); border-radius: 8px; padding: 11px 13px; }
+        .aid-action-title {
+            font-size: .72rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: .3px; color: var(--primary); margin-bottom: 5px;
+        }
+        .aid-action-text { font-size: .82rem; color: var(--gray-700); line-height: 1.55; }
+        .aid-contact {
+            display: flex; align-items: flex-start; gap: 6px;
+            margin-top: 8px; font-size: .82rem; color: var(--primary); font-weight: 600;
+        }
+
+        /* ── ACTION PLAN ── */
+        .action-plan { background: var(--primary); color: white; border-radius: var(--radius); padding: 22px; margin-top: 22px; }
+        .action-plan-title { font-size: 1rem; font-weight: 800; margin-bottom: 14px; }
+        .action-step { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+        .action-step-num {
+            width: 26px; height: 26px; background: rgba(255,255,255,.2);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: .78rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;
+        }
+        .action-step-text { font-size: .87rem; line-height: 1.5; }
+        .action-step-title  { font-weight: 700; }
+        .action-step-detail { opacity: .8; font-size: .8rem; }
+        .action-plan-tip {
+            margin-top: 14px; padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,.2);
+            font-size: .78rem; opacity: .8;
+        }
+
+        /* ── CONTACTS BOX ── */
+        .contacts-box { background: white; border-radius: var(--radius); padding: 18px; margin-top: 14px; box-shadow: var(--shadow); }
+        .contacts-title { font-size: .82rem; color: var(--gray-600); font-weight: 700; margin-bottom: 10px; }
+        .contacts-list  { font-size: .83rem; color: var(--gray-700); line-height: 1.9; }
+
+        /* ── EMAIL SCREEN ── */
+        .email-card {
+            background: white; border-radius: var(--radius);
+            padding: 32px 24px; box-shadow: var(--shadow); text-align: center;
+        }
+        .email-icon { font-size: 2.8rem; margin-bottom: 14px; }
+        .email-title { font-size: 1.35rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; line-height: 1.25; }
+        .email-subtitle { font-size: .88rem; color: var(--gray-600); margin-bottom: 24px; line-height: 1.55; }
+        .email-input {
+            width: 100%; padding: 13px 16px; border: 2px solid var(--gray-200);
+            border-radius: 10px; font-size: .95rem; color: var(--gray-900);
+            transition: border-color .15s; margin-bottom: 12px;
+        }
+        .email-input:focus { outline: none; border-color: var(--primary); }
+        .consent-label {
+            display: flex; align-items: flex-start; gap: 10px;
+            text-align: left; margin-bottom: 22px; cursor: pointer;
+        }
+        .consent-label input[type=checkbox] {
+            width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+            accent-color: var(--primary); cursor: pointer;
+        }
+        .consent-text { font-size: .8rem; color: var(--gray-600); line-height: 1.5; }
+        .btn-email-submit {
+            display: block; width: 100%; padding: 14px;
+            background: var(--primary); color: white; border: none;
+            border-radius: var(--radius); font-size: 1rem; font-weight: 700;
+            cursor: pointer; transition: background .2s; margin-bottom: 10px;
+        }
+        .btn-email-submit:hover { background: var(--primary-dark); }
+        .btn-email-skip {
+            display: block; width: 100%; padding: 11px;
+            background: transparent; color: var(--gray-600); border: none;
+            font-size: .85rem; cursor: pointer; text-decoration: underline;
+        }
+        .email-rgpd {
+            font-size: .72rem; color: var(--gray-600); margin-top: 16px;
+            padding-top: 14px; border-top: 1px solid var(--gray-200);
+            text-align: left; line-height: 1.5;
+        }
+
+        /* ── FOOTER ── */
+        .footer { margin-top: 28px; text-align: center; font-size: .75rem; color: var(--gray-600); padding-bottom: 20px; }
+        .footer a { color: var(--primary); }
+
+        /* ── PRINT ── */
+        @media print {
+            .header { position: static; }
+            .btn-print, .btn-back, .btn-next, .nav, .btn-start { display: none !important; }
+            .aid-card { break-inside: avoid; }
+            body { background: white; }
+            .screen { display: block !important; }
+            #screen-intro, #screen-questions, #screen-loading { display: none !important; }
+        }
+
+        /* ── MOBILE TWEAKS ── */
+        @media (max-width: 400px) {
+            .intro-title { font-size: 1.3rem; }
+            .question-text { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="appHeader">
+    <div class="header-inner">
+        <div class="logo">Mes Droits <span>Audomarois</span></div>
+        <span class="step-indicator" id="stepIndicator" style="display:none"></span>
+    </div>
+    <div class="progress-bar" id="progressBarWrapper" style="display:none">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+    <!-- INTRO -->
+    <div class="screen active" id="screen-intro">
+        <div class="intro-hero">
+            <div class="intro-icon">🏭</div>
+            <h1 class="intro-title">Vous êtes touché(e) par la crise de l'emploi dans l'Audomarois&nbsp;?</h1>
+            <p class="intro-subtitle">Répondez à 8 questions et découvrez toutes les aides auxquelles vous avez droit, avec les contacts locaux pour les obtenir concrètement.</p>
+            <div class="intro-stats">
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">questions</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5 min</span>
+                    <span class="stat-label">seulement</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">+15</span>
+                    <span class="stat-label">aides référencées</span>
+                </div>
+            </div>
+            <button class="btn-start" onclick="startQuiz()">Trouver mes aides →</button>
+            <p class="intro-note">🔒 Aucune donnée collectée — vos réponses restent sur votre appareil</p>
+        </div>
+
+        <div class="intro-features">
+            <p>Cette plateforme vous aide à accéder à&nbsp;:</p>
+            <div class="feature-grid">
+                <div>✅ Allocations chômage</div>
+                <div>✅ RSA &amp; aides sociales</div>
+                <div>✅ Formations CPF</div>
+                <div>✅ Aides au logement</div>
+                <div>✅ Aide alimentaire d'urgence</div>
+                <div>✅ Reconversion professionnelle</div>
+                <div>✅ Création d'entreprise</div>
+                <div>✅ Aides Région &amp; Département</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="screen" id="screen-questions">
+        <div class="question-card" id="questionCard"></div>
+        <div class="nav">
+            <button class="btn-back" id="btnBack" onclick="prevStep()">← Retour</button>
+            <button class="btn-next" id="btnNext" onclick="nextStep()" disabled>Suivant →</button>
+        </div>
+    </div>
+
+    <!-- EMAIL OPT-IN -->
+    <div class="screen" id="screen-email">
+        <div class="email-card">
+            <div class="email-icon">📬</div>
+            <h2 class="email-title">Vos résultats sont prêts&nbsp;!</h2>
+            <p class="email-subtitle">Laissez votre email pour recevoir votre plan d'action et rester informé(e) des actualités et initiatives pour l'emploi dans l'Audomarois. Entièrement facultatif.</p>
+
+            <input type="email" class="email-input" id="emailInput"
+                   placeholder="votre@email.fr" autocomplete="email">
+
+            <label class="consent-label">
+                <input type="checkbox" id="consentBox">
+                <span class="consent-text">J'accepte de recevoir des informations sur les initiatives citoyennes et la campagne pour l'Audomarois.</span>
+            </label>
+
+            <button class="btn-email-submit" onclick="submitEmail()">Voir mes résultats →</button>
+            <button class="btn-email-skip" onclick="skipEmail()">Continuer sans laisser mon email</button>
+
+            <div class="email-rgpd">
+                🔒 <strong>Vos données restent privées.</strong> Votre email ne sera jamais transmis à des tiers ni utilisé à des fins commerciales. Vous pouvez vous désinscrire à tout moment. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+            </div>
+        </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="screen" id="screen-loading">
+        <div class="loading-screen">
+            <div class="spinner"></div>
+            <div class="loading-text">Analyse de votre situation…</div>
+            <div class="loading-sub">Nous croisons vos réponses avec les dispositifs disponibles dans l'Audomarois</div>
+        </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="screen" id="screen-results"></div>
+
+</main>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+
+/* ======================================================
+   QUESTIONS
+   ====================================================== */
+const QUESTIONS = [
+    {
+        id: 'situation', step: 1,
+        text: 'Quelle est votre situation actuelle ?',
+        hint: 'Choisissez ce qui correspond le mieux',
+        type: 'single',
+        options: [
+            { value: 'chomage_recent',  icon: '📋', text: "J'ai perdu mon emploi récemment",            sub: 'Depuis moins de 6 mois' },
+            { value: 'chomage_long',    icon: '⏳', text: 'Je suis sans emploi depuis longtemps',         sub: 'Plus de 6 mois' },
+            { value: 'emploi_precaire', icon: '💼', text: "J'ai un emploi mais mes revenus sont insuffisants", sub: 'CDD, temps partiel, intérim…' },
+            { value: 'reconversion',    icon: '🔄', text: 'Je veux me reconvertir ou changer de métier',  sub: 'Formation, nouveau secteur…' },
+            { value: 'creation',        icon: '🚀', text: 'Je veux créer mon activité',                   sub: 'Entreprise, auto-entreprise…' },
+        ]
+    },
+    {
+        id: 'secteur', step: 2,
+        text: 'Dans quel secteur travailliez-vous (ou travaillez-vous) ?',
+        hint: 'Certains dispositifs sont spécifiques à votre secteur',
+        type: 'single',
+        options: [
+            { value: 'industrie', icon: '🏭', text: 'Industrie / Manufacture',          sub: 'Verrerie, métallurgie, production…' },
+            { value: 'commerce',  icon: '🛍️', text: 'Commerce / Distribution',          sub: 'Vente, grande surface, logistique…' },
+            { value: 'services',  icon: '🤝', text: 'Services / Santé / Social',         sub: 'Aide à domicile, médical, social…' },
+            { value: 'btp',       icon: '🏗️', text: 'BTP / Artisanat',                  sub: 'Bâtiment, travaux, artisanat…' },
+            { value: 'autre',     icon: '📁', text: 'Autre secteur',                     sub: 'Transport, agriculture, administration…' },
+        ]
+    },
+    {
+        id: 'age', step: 3,
+        text: 'Quel est votre âge ?',
+        hint: "Certaines aides sont réservées à une tranche d'âge",
+        type: 'single',
+        options: [
+            { value: 'moins26', icon: '🎓', text: 'Moins de 26 ans',  sub: '' },
+            { value: '26a45',   icon: '👤', text: 'De 26 à 45 ans',   sub: '' },
+            { value: '46a55',   icon: '👤', text: 'De 46 à 55 ans',   sub: 'Dispositifs seniors disponibles' },
+            { value: 'plus55',  icon: '🌟', text: 'Plus de 55 ans',   sub: 'Dispositifs seniors disponibles' },
+        ]
+    },
+    {
+        id: 'famille', step: 4,
+        text: 'Quelle est votre situation familiale ?',
+        hint: 'Cela influe sur les montants',
+        type: 'single',
+        options: [
+            { value: 'seul',          icon: '🧑',     text: 'Célibataire, sans enfant',     sub: '' },
+            { value: 'seul_enfants',  icon: '🧑‍👦',  text: 'Parent seul avec enfant(s)',   sub: 'Famille monoparentale' },
+            { value: 'couple',        icon: '👫',     text: 'En couple, sans enfant',        sub: '' },
+            { value: 'couple_enfants',icon: '👨‍👩‍👦', text: 'En couple avec enfant(s)',   sub: '' },
+        ]
+    },
+    {
+        id: 'revenus', step: 5,
+        text: 'Quels sont les revenus mensuels de votre foyer actuellement ?',
+        hint: 'Toutes sources confondues (chômage, conjoint, aides…)',
+        type: 'single',
+        options: [
+            { value: 'zero',    icon: '⚠️', text: 'Moins de 600 € / mois',       sub: 'Situation urgente' },
+            { value: 'faible',  icon: '📊', text: 'Entre 600 € et 1 200 €',       sub: '' },
+            { value: 'moyen',   icon: '📊', text: 'Entre 1 200 € et 1 800 €',     sub: '' },
+            { value: 'correct', icon: '📊', text: 'Plus de 1 800 €',              sub: '' },
+        ]
+    },
+    {
+        id: 'logement', step: 6,
+        text: 'Quelle est votre situation de logement ?',
+        hint: '',
+        type: 'single',
+        options: [
+            { value: 'locataire',    icon: '🏠', text: 'Locataire',                        sub: 'Appartement ou maison en location' },
+            { value: 'proprietaire', icon: '🏡', text: 'Propriétaire',                     sub: '' },
+            { value: 'heberge',      icon: '🤝', text: "Hébergé(e) chez quelqu'un",        sub: 'Famille, amis…' },
+        ]
+    },
+    {
+        id: 'commune', step: 7,
+        text: 'Dans quelle commune habitez-vous ?',
+        hint: 'Pour vous indiquer les contacts les plus proches',
+        type: 'select',
+        options: [
+            'Saint-Omer','Longuenesse','Arques','Blendecques','Wizernes',
+            'Aire-sur-la-Lys','Lumbres','Nordausques','Thérouanne','Moulle',
+            'Eperlecques','Watten','Clairmarais','Tilques','Serques',
+            'Zutkerque','Salperwick','Hallines','Quiestède','Wardrecques',
+            'Leulinghem','Wavrans-sur-l\'Aa','Rebecques','Autre commune'
+        ]
+    },
+    {
+        id: 'priorite', step: 8,
+        text: "Qu'est-ce qui est le plus important pour vous en ce moment ?",
+        hint: 'Cela nous aide à prioriser vos résultats',
+        type: 'single',
+        options: [
+            { value: 'urgent',         icon: '💰', text: 'Avoir un revenu rapidement',         sub: 'Urgence financière' },
+            { value: 'emploi',         icon: '💼', text: 'Retrouver un emploi stable',          sub: 'Recherche active' },
+            { value: 'formation',      icon: '📚', text: 'Me former / changer de métier',       sub: 'Reconversion professionnelle' },
+            { value: 'creation',       icon: '🚀', text: 'Créer mon entreprise',                sub: 'Auto-entrepreneur, société…' },
+            { value: 'accompagnement', icon: '🤝', text: "Être accompagné(e) dans mes démarches", sub: 'Conseils et suivi personnalisé' },
+        ]
+    }
+];
+
+/* ======================================================
+   AIDES — BASE DE DONNÉES
+   ====================================================== */
+const AIDS = [
+    {
+        id: 'are',
+        title: "Allocation Chômage (ARE)",
+        category: "Revenus",
+        priority: "urgent",
+        amount: "57 % à 75 % de votre ancien salaire — jusqu'à 24 mois",
+        description: "L'Allocation de Retour à l'Emploi est versée par France Travail si vous avez travaillé au moins 6 mois dans les 24 derniers mois. Inscrivez-vous rapidement : chaque jour de retard est un jour perdu.",
+        action: "Inscrivez-vous sur francetravail.fr OU présentez-vous directement à l'agence France Travail de Saint-Omer dans les 12 jours suivant la fin de votre contrat. À apporter : attestation employeur, pièce d'identité, RIB.",
+        contact: "📞 France Travail Saint-Omer : 3949 (numéro national gratuit) — Agence : 2 rue du Maréchal Foch, Saint-Omer",
+        check: a => ['chomage_recent','chomage_long'].includes(a.situation)
+    },
+    {
+        id: 'csp',
+        title: "Contrat de Sécurisation Professionnelle (CSP)",
+        category: "Reconversion",
+        priority: "urgent",
+        amount: "75 % de votre salaire brut pendant 12 mois",
+        description: "Dispositif réservé aux salariés licenciés économiques venant d'une entreprise de plus de 1 000 salariés — c'est le cas d'Arc International à Arques. C'est bien plus avantageux que le chômage classique. ATTENTION : vous n'avez que 21 jours pour accepter.",
+        action: "Votre employeur doit vous proposer le CSP lors de l'entretien de licenciement. S'il ne l'a pas fait, demandez-le immédiatement à France Travail. N'attendez pas : le délai est de 21 jours.",
+        contact: "📞 France Travail Saint-Omer : 3949 — À réclamer en priorité si vous venez d'Arc International ou d'un grand groupe industriel",
+        check: a => ['chomage_recent','chomage_long'].includes(a.situation) && a.secteur === 'industrie'
+    },
+    {
+        id: 'rsa',
+        title: "Revenu de Solidarité Active (RSA)",
+        category: "Revenus",
+        priority: "urgent",
+        amount: "~635 € (seul) — ~952 € (couple) — +~190 € par enfant",
+        description: "Le RSA garantit un revenu minimum si vous avez plus de 25 ans (ou moins si vous avez un enfant). Beaucoup de personnes oublient d'en faire la demande. Il est cumulable avec une petite activité.",
+        action: "Faites votre demande sur caf.fr (rubrique « Mes services ») ou directement à la CAF de Saint-Omer. Le RSA est accordé en 2 à 4 semaines. À apporter : 3 dernières fiches de paie, pièce d'identité, justificatif de domicile, RIB.",
+        contact: "📞 CAF Saint-Omer : 3230 — En ligne : caf.fr — CCAS de votre commune pour aide au dossier",
+        check: a => ['zero','faible'].includes(a.revenus)
+    },
+    {
+        id: 'prime_activite',
+        title: "Prime d'Activité",
+        category: "Revenus",
+        priority: "important",
+        amount: "Jusqu'à 600 € / mois selon situation",
+        description: "Si vous reprenez un emploi ou avez un emploi à temps partiel avec de faibles revenus, la prime d'activité complète votre salaire. Elle est très sous-utilisée — des millions de personnes y ont droit sans le savoir.",
+        action: "Simulez et faites votre demande directement sur caf.fr. C'est rapide. Votre CCAS peut vous aider gratuitement à remplir le dossier.",
+        contact: "📞 CAF Saint-Omer : 3230 — caf.fr — CCAS de votre commune",
+        check: a => a.situation === 'emploi_precaire' || (['chomage_recent','chomage_long'].includes(a.situation) && ['faible','moyen'].includes(a.revenus))
+    },
+    {
+        id: 'apl',
+        title: "Aide Personnalisée au Logement (APL)",
+        category: "Logement",
+        priority: "important",
+        amount: "100 € à 400 € / mois selon votre loyer",
+        description: "L'APL réduit votre loyer directement. Elle est versée à votre bailleur ou à vous si votre loyer n'est pas conventionné. Vérifiez si vous y avez droit — les critères d'éligibilité changent régulièrement.",
+        action: "Simulez sur caf.fr en 2 minutes. La demande se fait entièrement en ligne. En cas de difficulté, votre CCAS vous accompagne gratuitement.",
+        contact: "📞 CAF Saint-Omer : 3230 — caf.fr",
+        check: a => a.logement === 'locataire' && ['zero','faible','moyen'].includes(a.revenus)
+    },
+    {
+        id: 'garantie_jeunes',
+        title: "Contrat d'Engagement Jeune (CEJ)",
+        category: "Revenus",
+        priority: "urgent",
+        amount: "Jusqu'à 528 € / mois",
+        description: "Si vous avez moins de 26 ans, le CEJ vous garantit un accompagnement intensif vers l'emploi ou la formation, avec une allocation mensuelle. La Mission Locale de Saint-Omer est le point d'entrée.",
+        action: "Rendez-vous sans RDV à la Mission Locale de Saint-Omer avec votre pièce d'identité. L'accompagnement commence dans la semaine.",
+        contact: "📞 Mission Locale de l'Audomarois : 03 21 88 80 20 — 6 rue Edmond Richard, Saint-Omer",
+        check: a => a.age === 'moins26'
+    },
+    {
+        id: 'cpf',
+        title: "Compte Personnel de Formation (CPF)",
+        category: "Formation",
+        priority: "important",
+        amount: "500 € à 800 € de droits accumulés (+ abondement possible)",
+        description: "Vous avez des droits formation accumulés tout au long de votre carrière. Ils ne disparaissent pas après une perte d'emploi. Utilisez-les pour vous former à un nouveau métier ou obtenir une certification.",
+        action: "Consultez votre solde sur moncompteformation.gouv.fr. Si vos droits sont insuffisants, France Travail peut les abonder lors de votre accompagnement. Demandez-le explicitement à votre conseiller.",
+        contact: "📞 moncompteformation.gouv.fr — France Travail Saint-Omer : 3949 pour l'abondement",
+        check: a => ['chomage_recent','chomage_long','reconversion','emploi_precaire'].includes(a.situation)
+    },
+    {
+        id: 'formation_hdf',
+        title: "Chèque Formation Hauts-de-France",
+        category: "Formation",
+        priority: "important",
+        amount: "Financement total ou partiel selon la formation",
+        description: "La Région Hauts-de-France finance des formations qualifiantes pour les demandeurs d'emploi dans les secteurs en tension : logistique, numérique, services à la personne, BTP. Certaines formations sont disponibles à Longuenesse ou Saint-Omer.",
+        action: "Parlez-en à votre conseiller France Travail ou à la Mission Locale. Précisez les formations qui vous intéressent — ils peuvent souvent débloquer un financement rapide.",
+        contact: "📞 France Travail Saint-Omer : 3949 — Région Hauts-de-France : hautsdefrance.fr/formation",
+        check: a => ['reconversion','chomage_long'].includes(a.situation) || a.priorite === 'formation'
+    },
+    {
+        id: 'aide_urgence_ccas',
+        title: "Aide d'Urgence du CCAS",
+        category: "Urgence",
+        priority: "urgent",
+        amount: "Variable : bons alimentaires, factures, loyer…",
+        description: "Le Centre Communal d'Action Sociale de votre commune peut vous aider immédiatement en cas de crise : aide alimentaire, paiement d'une facture d'énergie, loyer impayé, produits de première nécessité. C'est confidentiel et sans jugement.",
+        action: "Appelez ou présentez-vous directement à votre CCAS. En cas d'urgence, vous n'avez pas besoin de rendez-vous dans la plupart des communes. Apportez votre pièce d'identité et un justificatif de domicile.",
+        contact: "📞 CCAS Saint-Omer : 03 21 98 26 00 — CCAS Longuenesse : 03 21 93 50 00 — CCAS Arques : 03 21 38 59 90 — Pour les autres communes, contactez votre mairie",
+        check: a => a.revenus === 'zero' || (a.revenus === 'faible' && ['seul','seul_enfants'].includes(a.famille))
+    },
+    {
+        id: 'aide_alimentaire',
+        title: "Aide Alimentaire (Restos du Cœur, Banque Alimentaire)",
+        category: "Urgence",
+        priority: "urgent",
+        amount: "Colis alimentaires, repas chauds — Gratuit",
+        description: "Si vous avez du mal à vous nourrir, les associations locales distribuent des colis alimentaires sans condition de ressources ni démarche administrative complexe. C'est confidentiel. Il n'y a pas de honte à demander.",
+        action: "Présentez-vous aux Restos du Cœur avec une pièce d'identité. L'inscription se fait sur place, rapidement. La Banque Alimentaire distribue via les épiceries sociales de votre commune.",
+        contact: "📞 Restos du Cœur Saint-Omer : 03 21 98 57 37 — Banque Alimentaire Pas-de-Calais : 03 21 35 01 23",
+        check: a => a.revenus === 'zero'
+    },
+    {
+        id: 'cheque_energie',
+        title: "Chèque Énergie + FSL (Fonds Solidarité Logement)",
+        category: "Logement",
+        priority: "important",
+        amount: "48 € à 277 € / an — FSL jusqu'à plusieurs centaines €",
+        description: "Le chèque énergie est envoyé automatiquement aux foyers à faibles revenus pour payer leurs factures de gaz ou d'électricité. En cas d'impayé urgent, le FSL du Département peut intervenir rapidement.",
+        action: "Si vous n'avez pas reçu votre chèque énergie, faites la demande sur chequeenergie.gouv.fr. Pour le FSL, contactez votre travailleur social, votre CCAS ou le Département du Pas-de-Calais.",
+        contact: "📞 chequeenergie.gouv.fr — Département Pas-de-Calais : 03 21 21 62 62",
+        check: a => ['zero','faible'].includes(a.revenus) && a.logement !== 'heberge'
+    },
+    {
+        id: 'acre',
+        title: "ACRE + ARCE — Aides à la Création d'Entreprise",
+        category: "Création",
+        priority: "important",
+        amount: "Exonération de charges 1 an + jusqu'à 45% du chômage en capital",
+        description: "L'ACRE exonère les créateurs d'entreprise de cotisations sociales pendant 12 mois. L'ARCE permet de toucher 45 % de vos droits chômage en capital de démarrage. Combinées, ces aides peuvent représenter plusieurs milliers d'euros.",
+        action: "Contactez la CCI Artois ou BGE Pas-de-Calais pour être accompagné. Déposez votre demande d'ACRE à l'URSSAF avant la création, et demandez l'ARCE à France Travail. Ne créez pas sans accompagnement — les erreurs de début sont évitables.",
+        contact: "📞 CCI Artois : 03 21 23 92 00 — BGE Pas-de-Calais : 03 21 57 93 50 — France Travail : 3949",
+        check: a => ['creation','reconversion'].includes(a.situation) || a.priorite === 'creation'
+    },
+    {
+        id: 'ass',
+        title: "Allocation de Solidarité Spécifique (ASS)",
+        category: "Revenus",
+        priority: "important",
+        amount: "~545 € / mois",
+        description: "Si vous avez épuisé vos droits au chômage et travaillé au moins 5 ans dans les 10 dernières années, l'ASS maintient un revenu. Essentielle pour les chômeurs de longue durée et les seniors. À demander AVANT la fin des droits ARE.",
+        action: "Signalez-vous à France Travail 2 mois avant la fin de votre ARE pour préparer le dossier ASS. N'attendez pas d'être sans revenu — le traitement prend du temps.",
+        contact: "📞 France Travail Saint-Omer : 3949",
+        check: a => ['46a55','plus55'].includes(a.age) && a.situation === 'chomage_long'
+    },
+    {
+        id: 'faj',
+        title: "Fonds d'Aide aux Jeunes (FAJ)",
+        category: "Urgence",
+        priority: "important",
+        amount: "Aide ponctuelle jusqu'à 500 €",
+        description: "Pour les jeunes de 18 à 25 ans en difficulté : financer un permis de conduire, une formation courte, une caution de logement, un équipement professionnel. Les dossiers sont traités rapidement.",
+        action: "Contactez la Mission Locale ou votre CCAS. Le dossier est simple et la réponse arrive sous 2 semaines.",
+        contact: "📞 Mission Locale de l'Audomarois : 03 21 88 80 20",
+        check: a => a.age === 'moins26' && ['zero','faible'].includes(a.revenus)
+    },
+    {
+        id: 'pro_a',
+        title: "Pro-A — Reconversion par l'Alternance",
+        category: "Formation",
+        priority: "utile",
+        amount: "Salaire maintenu + formation 100 % financée",
+        description: "Vous gardez un contrat de travail tout en vous formant à un nouveau métier en alternance. Idéal pour ne pas couper vos revenus lors d'une reconversion. Des entreprises de l'Audomarois recrutent actuellement en Pro-A.",
+        action: "Renseignez-vous auprès de votre OPCO (Opérateur de Compétences lié à votre ancien secteur) ou de France Travail. Ils ont la liste des employeurs locaux en Pro-A.",
+        contact: "📞 France Travail Saint-Omer : 3949",
+        check: a => ['reconversion','emploi_precaire'].includes(a.situation)
+    },
+    {
+        id: 'mobilite',
+        title: "Aide Permis de Conduire & Mobilité",
+        category: "Emploi",
+        priority: "utile",
+        amount: "Jusqu'à 1 200 € pour le permis B",
+        description: "France Travail peut financer votre permis de conduire si l'absence de permis est un frein à l'emploi. En zone rurale comme dans l'Audomarois, c'est souvent déterminant pour accéder aux emplois.",
+        action: "Mentionnez explicitement ce besoin à votre conseiller France Travail. Indiquez que vous habitez en zone rurale et que le permis conditionne vos opportunités d'emploi.",
+        contact: "📞 France Travail Saint-Omer : 3949",
+        check: () => true
+    }
+];
+
+/* ======================================================
+   CONFIGURATION — À REMPLIR APRÈS DÉPLOIEMENT APPS SCRIPT
+   ====================================================== */
+const SHEETS_URL = 'REMPLACER_PAR_VOTRE_URL_APPS_SCRIPT';
+// → Suivez le guide dans google-apps-script.js pour obtenir cette URL
+
+/* ======================================================
+   ÉTAT DE L'APPLICATION
+   ====================================================== */
+let currentQuestionIndex = 0;
+let answers = {};
+
+/* ======================================================
+   NAVIGATION
+   ====================================================== */
+function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById('screen-' + id);
+    el.classList.add('active');
+}
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    answers = {};
+    document.getElementById('progressBarWrapper').style.display = 'block';
+    document.getElementById('stepIndicator').style.display = 'inline';
+    showScreen('questions');
+    renderQuestion();
+    window.scrollTo(0, 0);
+}
+
+function prevStep() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderQuestion();
+        window.scrollTo(0, 0);
+    } else {
+        showScreen('intro');
+        document.getElementById('progressBarWrapper').style.display = 'none';
+        document.getElementById('stepIndicator').style.display = 'none';
+    }
+}
+
+function nextStep() {
+    const q = QUESTIONS[currentQuestionIndex];
+    if (!answers[q.id]) return;
+
+    if (currentQuestionIndex < QUESTIONS.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+        window.scrollTo(0, 0);
+    } else {
+        // Dernière question → écran email avant les résultats
+        showEmailScreen();
+    }
+}
+
+/* ======================================================
+   ÉCRAN EMAIL
+   ====================================================== */
+function showEmailScreen() {
+    document.getElementById('progressFill').style.width = '100%';
+    showScreen('email');
+    window.scrollTo(0, 0);
+}
+
+function submitEmail() {
+    const email    = document.getElementById('emailInput').value.trim();
+    const consent  = document.getElementById('consentBox').checked;
+
+    // Envoyer les données (non-bloquant — les résultats s'affichent quoi qu'il arrive)
+    sendToSheets(email, consent);
+    showLoading();
+}
+
+function skipEmail() {
+    sendToSheets('', false); // envoie quand même les réponses anonymes
+    showLoading();
+}
+
+/* ======================================================
+   ENVOI VERS GOOGLE SHEETS
+   ====================================================== */
+function sendToSheets(email, consent) {
+    if (!SHEETS_URL || SHEETS_URL.includes('REMPLACER')) return; // pas encore configuré
+
+    const payload = {
+        timestamp:  new Date().toISOString(),
+        email:      email || '',
+        consent:    consent,
+        commune:    answers.commune    || '',
+        situation:  answers.situation  || '',
+        secteur:    answers.secteur    || '',
+        age:        answers.age        || '',
+        famille:    answers.famille    || '',
+        revenus:    answers.revenus    || '',
+        logement:   answers.logement   || '',
+        priorite:   answers.priorite   || '',
+        nb_aides:   eligibleAids().length
+    };
+
+    // Fire-and-forget : on n'attend pas la réponse pour afficher les résultats
+    fetch(SHEETS_URL, {
+        method:  'POST',
+        mode:    'no-cors',        // Apps Script accepte sans CORS preflight
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+    }).catch(() => {}); // silencieux si offline
+}
+
+/* ======================================================
+   RENDU DES QUESTIONS
+   ====================================================== */
+function renderQuestion() {
+    const q = QUESTIONS[currentQuestionIndex];
+    const total = QUESTIONS.length;
+    const progress = (currentQuestionIndex / total) * 100;
+
+    document.getElementById('progressFill').style.width = progress + '%';
+    document.getElementById('stepIndicator').textContent = `${currentQuestionIndex + 1} / ${total}`;
+
+    const card = document.getElementById('questionCard');
+
+    const header = `
+        <div class="question-step">Question ${q.step} sur ${total}</div>
+        <h2 class="question-text">${q.text}</h2>
+        ${q.hint ? `<p class="question-hint">${q.hint}</p>` : ''}
+    `;
+
+    if (q.type === 'select') {
+        card.innerHTML = header + `
+            <select class="commune-select" id="selectField" onchange="pickSelect(this.value)">
+                <option value="">-- Choisissez votre commune --</option>
+                ${q.options.map(o => `<option value="${o}" ${answers[q.id] === o ? 'selected' : ''}>${o}</option>`).join('')}
+            </select>`;
+    } else {
+        card.innerHTML = header + `
+            <div class="options">
+                ${q.options.map(o => `
+                    <button class="option ${answers[q.id] === o.value ? 'selected' : ''}"
+                            data-value="${o.value}" onclick="pickOption(this, '${o.value}')">
+                        <span class="option-icon">${o.icon}</span>
+                        <span class="option-text">
+                            ${o.text}
+                            ${o.sub ? `<span class="option-sub">${o.sub}</span>` : ''}
+                        </span>
+                    </button>`).join('')}
+            </div>`;
+    }
+
+    const btnNext = document.getElementById('btnNext');
+    btnNext.disabled = !answers[q.id];
+    btnNext.textContent = currentQuestionIndex === QUESTIONS.length - 1 ? 'Voir mes résultats →' : 'Suivant →';
+
+    document.getElementById('btnBack').style.display = currentQuestionIndex === 0 ? 'none' : 'flex';
+}
+
+function pickOption(el, value) {
+    const q = QUESTIONS[currentQuestionIndex];
+    answers[q.id] = value;
+    document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('btnNext').disabled = false;
+}
+
+function pickSelect(value) {
+    const q = QUESTIONS[currentQuestionIndex];
+    answers[q.id] = value;
+    document.getElementById('btnNext').disabled = !value;
+}
+
+/* ======================================================
+   CHARGEMENT
+   ====================================================== */
+function showLoading() {
+    showScreen('loading');
+    document.getElementById('progressFill').style.width = '100%';
+    setTimeout(renderResults, 1800);
+}
+
+/* ======================================================
+   MOTEUR D'ÉLIGIBILITÉ
+   ====================================================== */
+function eligibleAids() {
+    return AIDS.filter(a => a.check(answers));
+}
+
+/* ======================================================
+   RENDU DES RÉSULTATS
+   ====================================================== */
+const PRIORITY_ORDER = { urgent: 0, important: 1, utile: 2 };
+const PRIORITY_LABEL = { urgent: 'Urgent', important: 'Important', utile: 'Utile' };
+const PRIORITY_CLASS = { urgent: 'badge-urgent', important: 'badge-important', utile: 'badge-utile' };
+const CAT_ICONS = { Urgence:'🆘', Revenus:'💰', Logement:'🏠', Formation:'📚', Reconversion:'🔄', Emploi:'💼', Création:'🚀' };
+
+function renderResults() {
+    const eligible = eligibleAids().sort((a,b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
+
+    // Grouper par catégorie
+    const cats = {};
+    eligible.forEach(a => { (cats[a.category] = cats[a.category] || []).push(a); });
+
+    let cardsHTML = '';
+    Object.entries(cats).forEach(([cat, list]) => {
+        cardsHTML += `<div class="section-title">${CAT_ICONS[cat] || '📋'} ${cat}</div>`;
+        list.forEach(aid => {
+            cardsHTML += `
+            <div class="aid-card">
+                <div class="aid-card-header">
+                    <span class="aid-badge ${PRIORITY_CLASS[aid.priority]}">${PRIORITY_LABEL[aid.priority]}</span>
+                    <div>
+                        <div class="aid-title">${aid.title}</div>
+                        <div class="aid-amount">💶 ${aid.amount}</div>
+                    </div>
+                </div>
+                <div class="aid-body">
+                    <p class="aid-description">${aid.description}</p>
+                    <div class="aid-action">
+                        <div class="aid-action-title">📌 Comment l'obtenir concrètement</div>
+                        <div class="aid-action-text">${aid.action}</div>
+                        <div class="aid-contact">${aid.contact}</div>
+                    </div>
+                </div>
+            </div>`;
+        });
+    });
+
+    // Plan d'action — top 3 urgents
+    const topUrgent = eligible.filter(a => a.priority === 'urgent').slice(0,3);
+    const actionHTML = topUrgent.length
+        ? topUrgent.map((a,i) => `
+            <div class="action-step">
+                <div class="action-step-num">${i+1}</div>
+                <div class="action-step-text">
+                    <div class="action-step-title">${a.title}</div>
+                    <div class="action-step-detail">${a.contact}</div>
+                </div>
+            </div>`).join('')
+        : `<div style="opacity:.8;font-size:.88rem">Commencez par appeler France Travail (3949) pour vous inscrire comme demandeur d'emploi.</div>`;
+
+    // Contacts de référence selon commune
+    const commune = answers.commune || '';
+    const isArques = commune.toLowerCase().includes('arques');
+    const isSaintOmer = commune.toLowerCase().includes('saint-omer') || commune.toLowerCase().includes('longuenesse');
+    const cspNote = isArques ? '<br>⚠️ <strong>Ex-salarié·e d\'Arc International ?</strong> Réclamez le CSP (75 % du salaire) à France Travail avant 21 jours.' : '';
+
+    const screen = document.getElementById('screen-results');
+    screen.innerHTML = `
+        <div class="results-header">
+            <span class="results-count">${eligible.length}</span>
+            <div class="results-label">aide${eligible.length > 1 ? 's' : ''} identifiée${eligible.length > 1 ? 's' : ''} pour votre situation</div>
+            <div class="results-banner">⚠️ Ne laissez pas ces droits dormir</div><br>
+            <button class="btn-print" onclick="window.print()">🖨️ Imprimer / Sauvegarder en PDF</button>
+        </div>
+
+        ${cardsHTML}
+
+        <div class="action-plan">
+            <div class="action-plan-title">🎯 Vos 3 démarches prioritaires cette semaine</div>
+            ${actionHTML}
+            ${cspNote}
+            <div class="action-plan-tip">
+                💡 Conseil : plusieurs de ces aides sont cumulables. Commencez par France Travail (3949) — ils peuvent vous orienter vers toutes les autres aides en une seule rencontre.
+            </div>
+        </div>
+
+        <div class="contacts-box">
+            <div class="contacts-title">Besoin d'aide pour remplir vos dossiers ? Ces services sont gratuits :</div>
+            <div class="contacts-list">
+                🏛️ <strong>CCAS de votre commune</strong> — accompagnement pour tous les dossiers sociaux<br>
+                🏢 <strong>France Travail Saint-Omer</strong> — 3949 (gratuit) — 2 rue du Maréchal Foch<br>
+                👨‍👩‍👦 <strong>CAF Saint-Omer</strong> — 3230 ou caf.fr<br>
+                🎓 <strong>Mission Locale (−26 ans)</strong> — 03 21 88 80 20 — 6 rue Edmond Richard<br>
+                💼 <strong>CCI Artois (création d'entreprise)</strong> — 03 21 23 92 00
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Plateforme <strong>Mes Droits Audomarois</strong> — 2025</p>
+            <p style="margin-top:4px;">Les montants sont indicatifs. Vérifiez votre éligibilité auprès des organismes concernés.</p>
+            <p style="margin-top:10px;"><a href="javascript:void(0)" onclick="restartApp()">← Recommencer pour une autre situation</a></p>
+        </div>`;
+
+    showScreen('results');
+    window.scrollTo(0, 0);
+}
+
+function restartApp() {
+    currentQuestionIndex = 0;
+    answers = {};
+    showScreen('intro');
+    document.getElementById('progressBarWrapper').style.display = 'none';
+    document.getElementById('stepIndicator').style.display = 'none';
+}
+
+</script>
+</body>
+</html>
